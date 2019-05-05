@@ -1,6 +1,7 @@
 package com.kuliah.pbkk.service.customer.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,36 +18,37 @@ import com.kuliah.pbkk.service.customer.repository.RestaurantRepository;;
 @RestController
 public class RestaurantController {
 	
-	//@Autowired
-	//private RestaurantRepository restaurantRepository;
+	@Autowired
+	private RestaurantRepository restaurantRepository;
 	
 	@GetMapping("/restaurants")
-	public List<Restaurant> getAllRestaurant() {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+	public Iterable<Restaurant> getAllRestaurant() {
+		return restaurantRepository.findAll();
 	}
 	
 	@GetMapping("/restaurants/{id}")
-	public Restaurant getRestaurantById(
-			@PathVariable int id) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+	public Object getRestaurantById(
+			@PathVariable Long id) {
+		return restaurantRepository.findById(id);
 	}
 	
 	@PostMapping("/restaurants") 
 	public Restaurant postRestaurant(
 			@RequestBody Restaurant Restaurant) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		return restaurantRepository.save(Restaurant);
 	}
 	
 	@PutMapping("/restaurants/{id}")
 	public Restaurant putRestaurant(
-			@PathVariable int id, 
+			@PathVariable Long id, 
 			@RequestBody Restaurant Restaurant) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		Restaurant.setId(id);
+		return restaurantRepository.save(Restaurant);
 	}
 	
 	@DeleteMapping("/restaurants/{id}")
 	public void deleteRestaurant(
-			@PathVariable int id) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+			@PathVariable Long id) {
+		restaurantRepository.deleteById(id);
 	}
 }
