@@ -1,12 +1,17 @@
 package com.kuliah.pbkk.service.customer.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
+@Table(name="users")
 public class User extends Data{
 	private String noIdentitas;
 	private String name;
 	private String alamat;
-	private String handphone;
+	private String noHandphone;
 	private String email;
 	@JsonIgnore
 	private byte[] password;
@@ -24,12 +29,7 @@ public class User extends Data{
 	public void setAlamat(String alamat) {
 		this.alamat = alamat;
 	}
-	public String getHandphone() {
-		return handphone;
-	}
-	public void setHandphone(String handphone) {
-		this.handphone = handphone;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -53,5 +53,11 @@ public class User extends Data{
 	}
 	public void setNoIdentitas(String noIdentitas) {
 		this.noIdentitas = noIdentitas;
+	}
+	public String getNoHandphone() {
+		return noHandphone;
+	}
+	public void setNoHandphone(String noHandphone) {
+		this.noHandphone = noHandphone;
 	}
 }

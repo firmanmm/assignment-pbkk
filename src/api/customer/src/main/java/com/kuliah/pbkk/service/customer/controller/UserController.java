@@ -1,10 +1,10 @@
 package com.kuliah.pbkk.service.customer.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,32 +21,33 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	@GetMapping("/users")
-	public List<User> getAllUser() {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+	public Iterable<User> getAllUser() {
+		return userRepository.findAll();
 	}
 	
 	@GetMapping("/users/{id}")
-	public User getUserById(
-			@PathVariable int id) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+	public Object getUserById(
+			@PathVariable Long id) {
+		return userRepository.findById(id);
 	}
 	
-	@PostMapping("/users") 
+	@PostMapping("/users")
 	public User postUser(
-			@RequestBody User User) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+			@ModelAttribute User user) {
+		return userRepository.save(user);
 	}
 	
 	@PutMapping("/users/{id}")
 	public User putUser(
-			@PathVariable int id, 
-			@RequestBody User User) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+			@PathVariable Long id, 
+			@RequestBody User user) {
+		user.setId(id);
+		return userRepository.save(user);
 	}
 	
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(
-			@PathVariable int id) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+			@PathVariable Long id) {
+		userRepository.deleteById(id);;
 	}
 }

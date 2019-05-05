@@ -17,8 +17,8 @@ import com.kuliah.pbkk.service.customer.repository.RestaurantRepository;;
 @RestController
 public class RestaurantController {
 	
-	@Autowired
-	private RestaurantRepository restaurantRepository;
+	//@Autowired
+	//private RestaurantRepository restaurantRepository;
 	
 	@GetMapping("/restaurants")
 	public List<Restaurant> getAllRestaurant() {

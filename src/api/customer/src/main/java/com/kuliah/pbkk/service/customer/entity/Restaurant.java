@@ -1,6 +1,15 @@
 package com.kuliah.pbkk.service.customer.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="restaurants")
 public class Restaurant extends Data {
+	@OneToOne
+	@JoinColumn(name="users_id", referencedColumnName="id")
 	private User pemilik;
 	private String nama;
 	private String deskripsi;

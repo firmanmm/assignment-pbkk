@@ -17,8 +17,8 @@ import com.kuliah.pbkk.service.customer.repository.DriverRepository;
 @RestController
 public class DriverController {
 	
-	@Autowired
-	private DriverRepository driverRepository;
+	//@Autowired
+	//private DriverRepository driverRepository;
 	
 	@GetMapping("/drivers")
 	public List<Driver> getAllDriver() {

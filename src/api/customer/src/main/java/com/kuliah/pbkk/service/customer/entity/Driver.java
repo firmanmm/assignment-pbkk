@@ -1,5 +1,10 @@
 package com.kuliah.pbkk.service.customer.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="drivers")
 public class Driver extends User {
 	private String noPolisi;
 	private String jenisKendaraan;
