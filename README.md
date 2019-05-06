@@ -14,6 +14,10 @@
 * **Data Parameters**
 `none`
 
+* **Success Response**
+
+* **Error Response**
+
 
 # SHOW DRIVER BY ID
 
