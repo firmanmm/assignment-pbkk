@@ -1,5 +1,10 @@
 # API Documentation
-
+```
+Name :
+Firman Maulana - 05111640000059
+Affan Ghaffar -  05111640000121
+Ananda Afryan -  05111640000147
+```
 # Data Model
 ## CDM
 ![CDM](datamodel/CDM.png)
@@ -7,6 +12,20 @@
 ![PDM](datamodel/PDM.png)
 
 # Driver API
+
+## Structure
+```
+noIdentitas | String
+noHandphone | String
+nama | String
+alamat | String
+email | String
+password | String
+noPolisi | String
+jenisKendaraan | String
+isApproved | Boolean
+```
+
 ## Show All Driver
 
 * **URL:** `/drivers`
@@ -68,6 +87,15 @@
 
 # Restaurant API
 
+## Structure
+```
+nama | String
+pemilik | User
+deskripsi | String
+alamat | String
+isPremium | Boolean
+```
+
 ## Show All Restaurant
 
 * **URL:** `/restaurant`
@@ -122,6 +150,17 @@
 `none`
 
 # User API
+
+## Structure
+```
+noIdentitas | String
+noHandphone | String
+nama | String
+alamat | String
+email | String
+password | String
+```
+
 ## Show All User
 
 * **URL:** `/users`
