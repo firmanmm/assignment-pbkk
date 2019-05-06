@@ -1,20 +1,20 @@
-# Show Driver
+# API Documentation
 
-URL
+* **URL:**
 
-/drivers
+`/drivers`
 
-Method:
+* **Method:**
 
-GET 
+`GET` 
 
-URL Params
+* **URL Params**
 
-none
+ `none`
 
-Data Params
+* **Data Params**
 
-none
+`none`
 
 
 #Show Drivers by ID
