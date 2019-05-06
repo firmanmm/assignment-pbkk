@@ -1,15 +1,14 @@
 package com.kuliah.pbkk.service.customer.controller;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kuliah.pbkk.service.customer.entity.Driver;
@@ -35,7 +34,7 @@ public class DriverController {
 	
 	@PostMapping("/drivers") 
 	public Driver postDriver(
-			@RequestBody Driver driver) {
+			@ModelAttribute Driver driver) {
 		return driverService.save(driver);
 	}
 	
@@ -45,6 +44,14 @@ public class DriverController {
 			@ModelAttribute Driver driver) {
 		driver.setId(id);
 		return driverService.save(driver);
+	}
+	
+	@PatchMapping("/drivers/{id}")
+	public Driver patchDriver(
+			@PathVariable Long id, 
+			@ModelAttribute Driver driver) {
+		driver.setId(id);
+		return driverService.update(driver);
 	}
 	
 	@DeleteMapping("/drivers/{id}")

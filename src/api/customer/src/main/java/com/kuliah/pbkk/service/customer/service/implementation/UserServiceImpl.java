@@ -44,8 +44,10 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User update(User data) {
 		User original = userRepository.findById(data.getId()).get();
-		data.merge(original);
-		return userRepository.save(data);
+		System.out.println(original.getNoHandphone());
+		original.merge(data);
+		System.out.println(original.getNoHandphone());
+		return userRepository.save(original);
 	}
 
 	

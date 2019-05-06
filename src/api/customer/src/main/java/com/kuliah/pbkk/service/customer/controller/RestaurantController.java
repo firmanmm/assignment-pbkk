@@ -1,11 +1,10 @@
 package com.kuliah.pbkk.service.customer.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,16 +32,24 @@ public class RestaurantController {
 	
 	@PostMapping("/restaurants") 
 	public Restaurant postRestaurant(
-			@ModelAttribute Restaurant Restaurant) {
-		return restaurantService.save(Restaurant);
+			@ModelAttribute Restaurant restaurant) {
+		return restaurantService.save(restaurant);
 	}
 	
 	@PutMapping("/restaurants/{id}")
 	public Restaurant putRestaurant(
 			@PathVariable Long id, 
-			@ModelAttribute Restaurant Restaurant) {
-		Restaurant.setId(id);
-		return restaurantService.save(Restaurant);
+			@ModelAttribute Restaurant restaurant) {
+		restaurant.setId(id);
+		return restaurantService.save(restaurant);
+	}
+	
+	@PatchMapping("/restaurants/{id}")
+	public Restaurant patchRestaurant(
+			@PathVariable Long id, 
+			@ModelAttribute Restaurant restaurant) {
+		restaurant.setId(id);
+		return restaurantService.update(restaurant);
 	}
 	
 	@DeleteMapping("/restaurants/{id}")

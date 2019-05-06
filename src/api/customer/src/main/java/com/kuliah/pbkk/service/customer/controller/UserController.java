@@ -48,6 +48,14 @@ public class UserController {
 		return userService.save(user);
 	}
 	
+	@PatchMapping("/users/{id}")
+	public User patchUser(
+			@PathVariable Long id, 
+			@ModelAttribute User user) {
+		user.setId(id);
+		return userService.update(user);
+	}
+	
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(
 			@PathVariable Long id) {

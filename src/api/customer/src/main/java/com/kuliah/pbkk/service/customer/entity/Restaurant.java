@@ -1,19 +1,23 @@
 package com.kuliah.pbkk.service.customer.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="restaurants")
+@Table(name="restaurants", indexes={
+		@Index(name="idx_alamat", columnList="alamat", unique = true)})
 public class Restaurant extends Data {
 	@OneToOne
 	@JoinColumn(name="users_id", referencedColumnName="id")
 	private User pemilik;
 	private String nama;
 	private String deskripsi;
+	@Column(name="alamat", nullable=false)
 	private String alamat;
 	private Boolean isPremium;
 	

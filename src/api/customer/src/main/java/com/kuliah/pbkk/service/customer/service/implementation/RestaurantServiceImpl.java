@@ -38,7 +38,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Override
 	public Restaurant update(Restaurant data) {
 		Restaurant original = restaurantRepository.findById(data.getId()).get();
-		data.merge(original);
-		return restaurantRepository.save(data);
+		original.merge(data);
+		return restaurantRepository.save(original);
 	}
 }

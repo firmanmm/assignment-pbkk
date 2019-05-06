@@ -22,7 +22,7 @@ public class DriverServiceImpl implements DriverService {
 			String hashed = BCrypt.hashpw(data.getPassword().toString(), BCrypt.gensalt());
 			data.setPassword(hashed.getBytes());
 		}
-		return null;
+		return driverRepository.save(data);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class DriverServiceImpl implements DriverService {
 	@Override
 	public Driver update(Driver data) {
 		Driver original = driverRepository.findById(data.getId()).get();
-		data.merge(original);
-		return driverRepository.save(data);
+		original.merge(data);
+		return driverRepository.save(original);
 	}
 	
 }
