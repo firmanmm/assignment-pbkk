@@ -2,6 +2,7 @@ package com.kuliah.pbkk.service.customer.service.implementation;
 
 import java.util.Optional;
 
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,5 +40,15 @@ public class UserServiceImpl implements UserService{
 	public Optional<User> findById(Long id) {
 		return userRepository.findById(id);
 	}
+	
+	@Override
+	public User update(User data) {
+		User original = userRepository.findById(data.getId()).get();
+		System.out.println(original.getNoHandphone());
+		original.merge(data);
+		System.out.println(original.getNoHandphone());
+		return userRepository.save(original);
+	}
+
 	
 }
