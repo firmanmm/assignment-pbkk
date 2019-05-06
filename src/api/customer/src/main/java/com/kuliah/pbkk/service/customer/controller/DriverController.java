@@ -17,36 +17,38 @@ import com.kuliah.pbkk.service.customer.repository.DriverRepository;
 @RestController
 public class DriverController {
 	
-	//@Autowired
-	//private DriverRepository driverRepository;
+	@Autowired
+	private DriverRepository driverRepository;
 	
 	@GetMapping("/drivers")
 	public List<Driver> getAllDriver() {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		return driverRepository.findAll();
+		
 	}
 	
 	@GetMapping("/drivers/{id}")
 	public Driver getDriverById(
 			@PathVariable int id) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		return driverRepository.findAll(id);
 	}
 	
 	@PostMapping("/drivers") 
 	public Driver postDriver(
 			@RequestBody Driver driver) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		return driverRepository.save(Driver);
 	}
 	
 	@PutMapping("/drivers/{id}")
 	public Driver putDriver(
 			@PathVariable int id, 
 			@RequestBody Driver driver) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		Driver.setId(id);
+		return driverRepository.save(Driver);
 	}
 	
 	@DeleteMapping("/drivers/{id}")
 	public void deleteDriver(
 			@PathVariable int id) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		driverRepository.deleteById(id);
 	}
 }
