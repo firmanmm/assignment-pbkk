@@ -1,7 +1,9 @@
 # API Documentation
 
 # Data Model
+## CDM
 ![CDM](datamodel/CDM.png)
+## PDM
 ![PDM](datamodel/PDM.png)
 
 # Driver API
@@ -38,9 +40,9 @@
 * **URL Parameters**
 `id=[Long]`
 * **Data Parameters**
-`noHandphone | String`
-`noIdentitas | String`
-`noPolisi | String`
+> `noHandphone | String`
+> `noIdentitas | String`
+> `noPolisi | String`
 
 ## Post Driver
 
@@ -49,9 +51,9 @@
 * **URL Parameters**
 `id=[Long]`
 * **Data Parameters**
-`noHandphone | String`
-`noIdentitas | String`
-`noPolisi | String`
+> `noHandphone | String`
+> `noIdentitas | String`
+> `noPolisi | String`
 
 ## Patch Driver
 
@@ -60,9 +62,9 @@
 * **URL Parameters**
 `id=[Long]`
 * **Data Parameters**
-`noHandphone | String`
-`noIdentitas | String`
-`noPolisi | String`
+> `noHandphone | String`
+> `noIdentitas | String`
+> `noPolisi | String`
 
 # Restaurant API
 
@@ -99,7 +101,7 @@
 * **URL Parameters**
 `id=[Long]`
 * **Data Parameters**
-`alamat | String`
+> `alamat | String`
 
 ## Post Restaurant
 
@@ -108,7 +110,7 @@
 * **URL Parameters**
 `none`
 * **Data Parameters**
-`alamat | String`
+> `alamat | String`
 
 ## Patch Restaurant
 
@@ -145,8 +147,8 @@
 * **URL Parameters**
 `none`
 * **Data Parameters**
-`noIdentitas | String`
-`noHandphone | String`
+> `noIdentitas | String`
+> `noHandphone | String`
 
 ## Put User
 
@@ -155,8 +157,8 @@
 * **URL Parameters**
 `id=[Long] `
 * **Data Parameters**
-`noIdentitas | String`
-`noHandphone | String`
+> `noIdentitas | String`
+> `noHandphone | String`
 
 ## Delete User
 
