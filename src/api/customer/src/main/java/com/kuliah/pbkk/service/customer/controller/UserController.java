@@ -1,6 +1,8 @@
 package com.kuliah.pbkk.service.customer.controller;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,46 +11,45 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kuliah.pbkk.service.customer.entity.User;
-import com.kuliah.pbkk.service.customer.repository.UserRepository;
+import com.kuliah.pbkk.service.customer.service.UserService;
 
 @RestController
 public class UserController {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@GetMapping("/users")
 	public Iterable<User> getAllUser() {
-		return userRepository.findAll();
+		return userService.findAll();
 	}
 	
 	@GetMapping("/users/{id}")
-	public Object getUserById(
+	public Optional<User> getUserById(
 			@PathVariable Long id) {
-		return userRepository.findById(id);
+		return userService.findById(id);
 	}
 	
 	@PostMapping("/users")
 	public User postUser(
 			@ModelAttribute User user) {
-		return userRepository.save(user);
+		return userService.save(user);
 	}
 	
 	@PutMapping("/users/{id}")
 	public User putUser(
 			@PathVariable Long id, 
-			@RequestBody User user) {
+			@ModelAttribute User user) {
 		user.setId(id);
-		return userRepository.save(user);
+		return userService.save(user);
 	}
 	
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(
 			@PathVariable Long id) {
-		userRepository.deleteById(id);
+		userService.deleteById(id);
 	}
 }

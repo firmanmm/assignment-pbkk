@@ -1,6 +1,5 @@
 package com.kuliah.pbkk.service.customer.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,29 +12,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kuliah.pbkk.service.customer.entity.Restaurant;
-import com.kuliah.pbkk.service.customer.repository.RestaurantRepository;;
+import com.kuliah.pbkk.service.customer.service.RestaurantService;;
 
 @RestController
 public class RestaurantController {
 	
 	@Autowired
-	private RestaurantRepository restaurantRepository;
+	private RestaurantService restaurantService;
 	
 	@GetMapping("/restaurants")
 	public Iterable<Restaurant> getAllRestaurant() {
-		return restaurantRepository.findAll();
+		return restaurantService.findAll();
 	}
 	
 	@GetMapping("/restaurants/{id}")
-	public Object getRestaurantById(
+	public Optional<Restaurant> getRestaurantById(
 			@PathVariable Long id) {
-		return restaurantRepository.findById(id);
+		return restaurantService.findById(id);
 	}
 	
 	@PostMapping("/restaurants") 
 	public Restaurant postRestaurant(
 			@RequestBody Restaurant Restaurant) {
-		return restaurantRepository.save(Restaurant);
+		return restaurantService.save(Restaurant);
 	}
 	
 	@PutMapping("/restaurants/{id}")
@@ -43,12 +42,12 @@ public class RestaurantController {
 			@PathVariable Long id, 
 			@RequestBody Restaurant Restaurant) {
 		Restaurant.setId(id);
-		return restaurantRepository.save(Restaurant);
+		return restaurantService.save(Restaurant);
 	}
 	
 	@DeleteMapping("/restaurants/{id}")
 	public void deleteRestaurant(
 			@PathVariable Long id) {
-		restaurantRepository.deleteById(id);
+		restaurantService.deleteById(id);
 	}
 }

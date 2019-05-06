@@ -1,15 +1,18 @@
 package com.kuliah.pbkk.service.customer.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
+@MappedSuperclass
 @Table(name="users")
 public class User extends Data{
 	private String noIdentitas;
-	private String name;
+	private String nama;
 	private String alamat;
 	private String noHandphone;
 	private String email;
@@ -18,10 +21,10 @@ public class User extends Data{
 	private Boolean isActivated;
 	
 	public String getName() {
-		return name;
+		return nama;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.nama = name;
 	}
 	public String getAlamat() {
 		return alamat;

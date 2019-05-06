@@ -1,10 +1,12 @@
 package com.kuliah.pbkk.service.customer.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,43 +14,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kuliah.pbkk.service.customer.entity.Driver;
-import com.kuliah.pbkk.service.customer.repository.DriverRepository;
+import com.kuliah.pbkk.service.customer.service.DriverService;
 
 @RestController
 public class DriverController {
 	
 	@Autowired
-	private DriverRepository driverRepository;
+	private DriverService driverService;
 	
 	@GetMapping("/drivers")
-	public List<Driver> getAllDriver() {
-		return driverRepository.findAll();
+	public Iterable<Driver> getAllDriver() {
+		return driverService.findAll();
 		
 	}
 	
 	@GetMapping("/drivers/{id}")
-	public Driver getDriverById(
-			@PathVariable int id) {
-		return driverRepository.findAll(id);
+	public Optional<Driver> getDriverById(
+			@PathVariable Long id) {
+		return driverService.findById(id);
 	}
 	
 	@PostMapping("/drivers") 
 	public Driver postDriver(
 			@RequestBody Driver driver) {
-		return driverRepository.save(Driver);
+		return driverService.save(driver);
 	}
 	
 	@PutMapping("/drivers/{id}")
 	public Driver putDriver(
-			@PathVariable int id, 
-			@RequestBody Driver driver) {
-		Driver.setId(id);
-		return driverRepository.save(Driver);
+			@PathVariable Long id, 
+			@ModelAttribute Driver driver) {
+		driver.setId(id);
+		return driverService.save(driver);
 	}
 	
 	@DeleteMapping("/drivers/{id}")
 	public void deleteDriver(
-			@PathVariable int id) {
-		driverRepository.deleteById(id);
+			@PathVariable Long id) {
+		driverService.deleteById(id);
 	}
 }
