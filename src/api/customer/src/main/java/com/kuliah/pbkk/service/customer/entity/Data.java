@@ -9,13 +9,19 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @MappedSuperclass
 public class Data {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date deletedAt;
 	
