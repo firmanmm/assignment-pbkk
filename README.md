@@ -59,7 +59,7 @@ Required
 
 * **Data Parameters**
 Required
-`User`
+`Drivers`
 
 # POST DRIVER
 
@@ -75,7 +75,7 @@ Required
 
 * **Data Parameters**
 Required
-`User`
+`Drivers`
 
 
 # SHOW ALL RESTAURANT
@@ -91,6 +91,7 @@ Required
 
 * **Data Parameters**
 `none`
+
 # SHOW RESTAURANT BY ID
 
 * **URL**
@@ -137,7 +138,7 @@ Required
 Required
 `Restaurant`
 
-# POST DRIVER
+# POST RESTAURANT
 
 * **URL**
 `/driver`
@@ -152,3 +153,75 @@ Required
 Required
 `Restaurant`
 
+
+# SHOW ALL USER
+
+* **URL:**
+`/users`
+
+* **Method:**
+`GET` 
+
+* **URL Parameters**
+`none`
+
+* **Data Parameters**
+`none`
+
+# SHOW USER BY ID
+
+* **URL**
+`/users/{id}`
+
+* **Menthod:**
+`GET`
+
+* **URL Parameters**
+Required
+`id=[Long]`
+
+* **Data Parameters**
+`none`
+
+# POST USER
+
+* **URL**
+`/users/{id}`
+
+* **Menthod:**
+`POST`
+
+* **URL Parameters**
+`none`
+
+* **Data Parameters**
+`User`
+
+# PUT USER
+
+* **URL**
+`/users/{id}`
+
+* **Method:**
+`PUT`
+
+* **URL Parameters**
+Required
+`id=[Long] `
+
+* **Data Parameters**
+`User`
+
+# DELETE USER
+
+* **URL**
+`/users/{id}`
+
+* **Method:**
+`DELETE`
+
+* **URL Parameters**
+`id=[Long]`
+
+* **Data Parameters**
+`none`
