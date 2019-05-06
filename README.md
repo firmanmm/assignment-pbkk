@@ -1,38 +1,78 @@
 # API Documentation
 
-* **URL:**
+# SHOW ALL DRIVER
 
+* **URL:**
 `/drivers`
 
 * **Method:**
-
 `GET` 
 
-* **URL Params**
-
+* **URL Parameters**
  `none`
 
-* **Data Params**
-
+* **Data Parameters**
 `none`
 
 
-#Show Drivers by ID
+# SHOW DRIVER BY ID
 
-URL
+* **URL**
+`/drivers/{id}`
 
-/drivers/{id}
+* **Menthod:**
+`GET`
 
-Menthod:
-
-GET
-
-URL Param
-
+* **URL Parameters**
 Required
+`id=[Long]`
 
-id=[Long]
+* **Data Parameters**
+`none`
 
-Data Param
+# DELETE USE
 
-none
+* **URL**
+`drivers/{id}`
+
+* **Method:**
+`DELETE`
+
+* **URL Parameters**
+Required
+`id=[Long]`
+
+* **Data Parameters**
+`none`
+
+# PUT DRIVER
+
+* **URL**
+`drivers/{id}`
+
+* **Method**
+`POST`
+
+* **URL Parameters**
+Required
+`id=[Long]`
+
+* **Data Parameters**
+Required
+`User`
+
+# POST DRIVER
+
+* **URL**
+`/driver`
+
+* **Method**
+`POST`
+
+* **URL Parameters**
+Required
+`id=[Long]`
+
+* **Data Parameters**
+Required
+`User`
