@@ -1,231 +1,168 @@
 # API Documentation
 
-# SHOW ALL DRIVER
+# Data Model
+![CDM](datamodel/CDM.png)
+![PDM](datamodel/PDM.png)
 
-* **URL:**
-`/drivers`
+# Driver API
+## Show All Driver
 
-* **Method:**
-`GET` 
-
-* **URL Parameters**
- `none`
-
+* **URL:** `/drivers`
+* **Method:** `GET` 
+* **URL Parameters** 
+`none`
 * **Data Parameters**
 `none`
 
-* **Success Response**
+## Show Driver By Id
 
-* **Error Response**
-
-
-# SHOW DRIVER BY ID
-
-* **URL**
-`/drivers/{id}`
-
-* **Menthod:**
-`GET`
-
+* **URL** `/drivers/{id}`
+* **Menthod:** `GET`
 * **URL Parameters**
-Required
 `id=[Long]`
-
 * **Data Parameters**
 `none`
+## Delete User
 
-# DELETE DRIVER
-
-* **URL**
-`drivers/{id}`
-
-* **Method:**
-`DELETE`
-
+* **URL** `drivers/{id}`
+* **Method:** `DELETE`
 * **URL Parameters**
-Required
 `id=[Long]`
-
 * **Data Parameters**
 `none`
 
-# PUT DRIVER
+## Put Driver
 
-* **URL**
-`drivers/{id}`
-
-* **Method**
-`POST`
-
+* **URL** `drivers/{id}`
+* **Method** `POST`
 * **URL Parameters**
-Required
 `id=[Long]`
-
 * **Data Parameters**
-Required
-`Drivers`
+`noHandphone | String`
+`noIdentitas | String`
+`noPolisi | String`
 
-# POST DRIVER
+## Post Driver
 
-* **URL**
-`/driver`
-
-* **Method**
-`POST`
-
+* **URL** `/driver`
+* **Method** `POST`
 * **URL Parameters**
-Required
 `id=[Long]`
-
 * **Data Parameters**
-Required
-`Drivers`
+`noHandphone | String`
+`noIdentitas | String`
+`noPolisi | String`
 
+## Patch Driver
 
-# SHOW ALL RESTAURANT
-
-* **URL:**
-`/restaurant`
-
-* **Method:**
-`GET` 
-
+* **URL** `drivers/{id}`
+* **Method** `POST`
 * **URL Parameters**
- `none`
-
-* **Data Parameters**
-`none`
-
-# SHOW RESTAURANT BY ID
-
-* **URL**
-`/restaurant/{id}`
-
-* **Menthod:**
-`GET`
-
-* **URL Parameters**
-Required
 `id=[Long]`
+* **Data Parameters**
+`noHandphone | String`
+`noIdentitas | String`
+`noPolisi | String`
 
+# Restaurant API
+
+## Show All Restaurant
+
+* **URL:** `/restaurant`
+* **Method:** `GET` 
+* **URL Parameters**
+`none`
 * **Data Parameters**
 `none`
 
-# DELETE RESTAURANT
+## Show Restaurant By Id
 
-* **URL**
-`restaurant/{id}`
-
-* **Method:**
-`DELETE`
-
+* **URL** `/restaurant/{id}`
+* **Menthod:** `GET`
 * **URL Parameters**
-Required
 `id=[Long]`
-
 * **Data Parameters**
 `none`
 
-# PUT RESTAURANT
-
-* **URL**
-`restaurant/{id}`
-
-* **Method**
-`PUT`
-
+## Delete Restaurant
+* **URL** `restaurant/{id}`
+* **Method:** `DELETE`
 * **URL Parameters**
-Required
 `id=[Long]`
-
-* **Data Parameters**
-Required
-`Restaurant`
-
-# POST RESTAURANT
-
-* **URL**
-`/driver`
-
-* **Method**
-`POST`
-
-* **URL Parameters**
-`none`
-
-* **Data Parameters**
-Required
-`Restaurant`
-
-
-# SHOW ALL USER
-
-* **URL:**
-`/users`
-
-* **Method:**
-`GET` 
-
-* **URL Parameters**
-`none`
-
 * **Data Parameters**
 `none`
 
-# SHOW USER BY ID
+## Put Restaurant
 
-* **URL**
-`/users/{id}`
-
-* **Menthod:**
-`GET`
-
+* **URL** `restaurant/{id}`
+* **Method** `PUT`
 * **URL Parameters**
-Required
 `id=[Long]`
+* **Data Parameters**
+`alamat | String`
 
+## Post Restaurant
+
+* **URL** `restaurant`
+* **Method** `POST`
+* **URL Parameters**
+`none`
+* **Data Parameters**
+`alamat | String`
+
+## Patch Restaurant
+
+* **URL** `restaurant/{id}`
+* **Method** `POST`
+* **URL Parameters**
+`id=[Long]`
 * **Data Parameters**
 `none`
 
-# POST USER
+# User API
+## Show All User
 
-* **URL**
-`/users/{id}`
-
-* **Menthod:**
-`POST`
-
+* **URL:** `/users`
+* **Method:** `GET` 
 * **URL Parameters**
 `none`
-
 * **Data Parameters**
-`User`
+`none`
 
-# PUT USER
+## Show User By Id
 
-* **URL**
-`/users/{id}`
-
-* **Method:**
-`PUT`
-
+* **URL** `/users/{id}`
+* **Menthod:** `GET`
 * **URL Parameters**
-Required
+`id=[Long]`
+* **Data Parameters**
+`none`
+
+## Post User
+
+* **URL** `/users`
+* **Menthod:** `POST`
+* **URL Parameters**
+`none`
+* **Data Parameters**
+`noIdentitas | String`
+`noHandphone | String`
+
+## Put User
+
+* **URL** `/users/{id}`
+* **Method:** `PUT`
+* **URL Parameters**
 `id=[Long] `
-
 * **Data Parameters**
-`User`
+`noIdentitas | String`
+`noHandphone | String`
 
-# DELETE USER
+## Delete User
 
-* **URL**
-`/users/{id}`
-
-* **Method:**
-`DELETE`
-
+* **URL** `/users/{id}`
+* **Method:** `DELETE`
 * **URL Parameters**
 `id=[Long]`
-
 * **Data Parameters**
 `none`
