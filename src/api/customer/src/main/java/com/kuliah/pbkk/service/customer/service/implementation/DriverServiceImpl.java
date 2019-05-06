@@ -14,7 +14,7 @@ import com.kuliah.pbkk.service.customer.service.DriverService;
 public class DriverServiceImpl implements DriverService {
 	
 	@Autowired
-	private DriverRepository DriverRepository;
+	private DriverRepository driverRepository;
 	
 	@Override
 	public Driver save(Driver data) {
@@ -27,18 +27,25 @@ public class DriverServiceImpl implements DriverService {
 
 	@Override
 	public void deleteById(Long id) {
-		DriverRepository.deleteById(id);
+		driverRepository.deleteById(id);
 		
 	}
 
 	@Override
 	public Iterable<Driver> findAll() {
-		return DriverRepository.findAll();
+		return driverRepository.findAll();
 	}
 
 	@Override
 	public Optional<Driver> findById(Long id) {
-		return DriverRepository.findById(id);
+		return driverRepository.findById(id);
+	}
+	
+	@Override
+	public Driver update(Driver data) {
+		Driver original = driverRepository.findById(data.getId()).get();
+		data.merge(original);
+		return driverRepository.save(data);
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.kuliah.pbkk.service.customer.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.BeanUtils;
 
 @MappedSuperclass
 public class Data {
@@ -18,6 +20,7 @@ public class Data {
 	private Long id;
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(updatable=false)
 	private Date createdAt;
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -42,6 +45,10 @@ public class Data {
 	}
 	public void setDeletedAt(Date deletedAt) {
 		this.deletedAt = deletedAt;
+	}
+	
+	public void merge(Object source) {
+		BeanUtils.copyProperties(source, this);
 	}
 	
 }

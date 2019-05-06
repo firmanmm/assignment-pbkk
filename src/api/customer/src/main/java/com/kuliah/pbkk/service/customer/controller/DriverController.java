@@ -28,9 +28,9 @@ public class DriverController {
 	}
 	
 	@GetMapping("/drivers/{id}")
-	public Optional<Driver> getDriverById(
+	public Driver getDriverById(
 			@PathVariable Long id) {
-		return driverService.findById(id);
+		return driverService.findById(id).get();
 	}
 	
 	@PostMapping("/drivers") 

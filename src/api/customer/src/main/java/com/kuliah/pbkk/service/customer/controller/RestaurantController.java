@@ -26,9 +26,9 @@ public class RestaurantController {
 	}
 	
 	@GetMapping("/restaurants/{id}")
-	public Optional<Restaurant> getRestaurantById(
+	public Restaurant getRestaurantById(
 			@PathVariable Long id) {
-		return restaurantService.findById(id);
+		return restaurantService.findById(id).get();
 	}
 	
 	@PostMapping("/restaurants") 
