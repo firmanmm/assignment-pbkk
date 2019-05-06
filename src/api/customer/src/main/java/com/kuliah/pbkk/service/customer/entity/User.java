@@ -1,14 +1,12 @@
 package com.kuliah.pbkk.service.customer.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@MappedSuperclass
 @Table(name="users")
 public class User extends Data{
 	private String noIdentitas;

@@ -4,11 +4,13 @@ import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.kuliah.pbkk.service.customer.entity.User;
 import com.kuliah.pbkk.service.customer.repository.UserRepository;
 import com.kuliah.pbkk.service.customer.service.UserService;
 
+@Component("userService")
 public class UserServiceImpl implements UserService{
 
 	@Autowired

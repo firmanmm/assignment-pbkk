@@ -4,11 +4,13 @@ import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.kuliah.pbkk.service.customer.entity.Driver;
 import com.kuliah.pbkk.service.customer.repository.DriverRepository;
 import com.kuliah.pbkk.service.customer.service.DriverService;
 
+@Component("driverService")
 public class DriverServiceImpl implements DriverService {
 	
 	@Autowired

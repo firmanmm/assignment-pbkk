@@ -3,11 +3,13 @@ package com.kuliah.pbkk.service.customer.service.implementation;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.kuliah.pbkk.service.customer.entity.Restaurant;
 import com.kuliah.pbkk.service.customer.repository.RestaurantRepository;
 import com.kuliah.pbkk.service.customer.service.RestaurantService;
 
+@Component("restaurantService")
 public class RestaurantServiceImpl implements RestaurantService {
 
 	@Autowired
