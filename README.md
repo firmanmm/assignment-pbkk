@@ -32,7 +32,7 @@ isApproved | Boolean
 * **Method:** `GET` 
 * **URL Parameters** 
 `none`
-* **Data Parameters**
+* **Data Parameters** * **Output**
 `none`
 
 ## Show Driver By Id
