@@ -33,7 +33,7 @@ isApproved | Boolean
 * **URL Parameters** 
 `none`
 * **Data Parameters** 
-`none
+`none`
 
 ## Show Driver By Id
 
