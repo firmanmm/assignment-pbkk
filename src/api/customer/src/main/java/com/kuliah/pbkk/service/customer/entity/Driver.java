@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
+import com.kuliah.pbkk.service.customer.exception.BadRequestException;
+import com.kuliah.pbkk.service.customer.utility.RegExpPattern;
+
 
 @Entity
 @Table(name="drivers", indexes={
@@ -33,5 +36,20 @@ public class Driver extends UserTrait{
 	}
 	public void setIsApproved(Boolean isApproved) {
 		this.isApproved = isApproved;
+	}
+	@Override
+	public void validate() {
+		super.validate();
+		if(jenisKendaraan != null && jenisKendaraan.length() > 0) {
+			if(!jenisKendaraan.equalsIgnoreCase("mobil") 
+					&& !jenisKendaraan.equalsIgnoreCase("motor")) {
+				throw new BadRequestException("Not a valid vehicle!"); 
+			}
+		}
+		if(noPolisi != null && noPolisi.length() > 0) {
+			if(!noPolisi.matches(RegExpPattern.alphanumeric) && !(noPolisi.length() > 3)) {
+				throw new BadRequestException("Not a valid vehicle number!");
+			}
+		}
 	}
 }
