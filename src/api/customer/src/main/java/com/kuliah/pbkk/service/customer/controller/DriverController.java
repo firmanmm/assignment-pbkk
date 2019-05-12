@@ -21,7 +21,11 @@ public class DriverController {
 	@Autowired
 	private DriverService driverService;
 	
+<<<<<<< Updated upstream
 	@PreAuthorize("#oauth2.hasScope('read_driver')")
+=======
+	@PreAuthorize("#oauth2.hasScope('driver_read')")
+>>>>>>> Stashed changes
 	@GetMapping("/drivers")
 	public Iterable<Driver> getAllDriver() {
 		return driverService.findAll();
