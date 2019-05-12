@@ -9,6 +9,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	public User getByNoIdentitas(String noIdentitas);
 	public User getByEmail(String email);
 	public User getByNoHandphone(String noHandphone);
-	@Query("UPDATE FROM users SET `deleted_at` = CURRENT_TIMESTAMP() WHERE id = ?1 AND `deleted_at` IS NULL")
+	@Query(value="UPDATE users SET deleted_at = NOW() WHERE id = ?1 AND deleted_at IS NULL", nativeQuery=true)
 	public void markDelete(Long id);
 }

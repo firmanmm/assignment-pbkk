@@ -22,6 +22,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.approval.UserApprovalHandler;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import com.kuliah.pbkk.service.customer.entity.Client;
 import com.kuliah.pbkk.service.customer.repository.ClientRepository;
@@ -36,10 +38,24 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+    
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey("private-key");
+        return converter;
+    }
+    
+    @Bean
+    public TokenStore tokenStore() {
+        return new JwtTokenStore(accessTokenConverter());
+    }
 	
-	@Override
+	@Override	
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
+		endpoints.accessTokenConverter(accessTokenConverter())
+			.authenticationManager(authenticationManager)
+			.userDetailsService(userDetailsService);
 	}
 	
 	@Override
