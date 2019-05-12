@@ -11,6 +11,22 @@ Ananda Afryan -  05111640000147
 ## PDM
 ![PDM](datamodel/PDM.png)
 
+# Developers
+This service provide an implementation of OAuth2 standard. Please use the password grant, and refresh token grant inorder to obtain your access key. Read more about password grant here : https://www.oauth.com/oauth2-servers/access-tokens/password-grant/. Please use basic authentication to access our token endpoints. 
+```
+***host*** might be replaced with something else
+host/oauth/token        //For retreiving your token
+host/oauth/check_token  //For resources server that wants to check given token
+```
+Here is some diagrams for you :>. But please skip the user login form part since we just provide an API Endpoint. 
+![Password Grant Flow](https://cdn-images-1.medium.com/max/2600/1*wkgiXdBnGof02eMYyqzWiQ.png)
+
+## Resource Access
+Inorder to access resources that is registered on this service please contact one of our team members to get your `access credentials` to be used for password grant flow. Also some endpoints may require you to have the required scope to be able to access it. Let's assume that there is only one user in our service and that is `customer` with password `customer` to simplify our access.
+
+## Resource Provider
+If you want to register your service to us, please contact one of our team members so your service can be registered for token checking. Also, you are responsible for your own resources since we only provide token checking service.
+
 # Driver API
 
 ## Structure
