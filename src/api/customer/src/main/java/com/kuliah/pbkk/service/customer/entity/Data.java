@@ -19,7 +19,7 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 @MappedSuperclass
-public class Data {
+public abstract class Data {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -68,5 +68,7 @@ public class Data {
 	    String[] result = new String[emptyNames.size()];
 	    return emptyNames.toArray(result);
 	}
+	
+	public abstract void validate();
 	
 }
