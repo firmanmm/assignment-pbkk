@@ -46,7 +46,7 @@ public class ClientController {
 		client.setId(id);
 		return clientService.save(client);
 	}
-	@PreAuthorize("#oauth2.hasScope('create_client')")	
+	@PreAuthorize("#oauth2.hasScope('write_client')")	
 	@PatchMapping("/clients/{id}")
 	public Client patchClient(
 			@PathVariable Long id, 

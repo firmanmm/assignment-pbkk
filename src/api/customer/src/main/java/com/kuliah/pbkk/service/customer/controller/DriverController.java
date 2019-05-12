@@ -21,11 +21,7 @@ public class DriverController {
 	@Autowired
 	private DriverService driverService;
 	
-<<<<<<< Updated upstream
 	@PreAuthorize("#oauth2.hasScope('read_driver')")
-=======
-	@PreAuthorize("#oauth2.hasScope('driver_read')")
->>>>>>> Stashed changes
 	@GetMapping("/drivers")
 	public Iterable<Driver> getAllDriver() {
 		return driverService.findAll();
@@ -52,7 +48,7 @@ public class DriverController {
 		driver.setId(id);
 		return driverService.save(driver);
 	}
-	@PreAuthorize("#oauth2.hasScope('create_driver')")	
+	@PreAuthorize("#oauth2.hasScope('write_driver')")	
 	@PatchMapping("/drivers/{id}")
 	public Driver patchDriver(
 			@PathVariable Long id, 

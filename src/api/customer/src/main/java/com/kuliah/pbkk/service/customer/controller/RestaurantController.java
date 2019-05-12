@@ -48,7 +48,7 @@ public class RestaurantController {
 		restaurant.setId(id);
 		return restaurantService.save(restaurant);
 	}
-	@PreAuthorize("#oauth2.hasScope('create_restaurant')")		
+	@PreAuthorize("#oauth2.hasScope('write_restaurant')")		
 	@PatchMapping("/restaurants/{id}")
 	public Restaurant patchRestaurant(
 			@PathVariable Long id, 

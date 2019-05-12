@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="clients", indexes= {
 		@Index(name="idx_identifier", columnList="identifier", unique = true)
@@ -13,6 +15,7 @@ public class Client extends Data{
 
 	@Column(unique=true, updatable=false)
 	private String identifier;
+	@JsonIgnore
 	private String secret;
 	private String scopes;
 
