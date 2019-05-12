@@ -48,9 +48,7 @@ isApproved | Boolean
 ```
 * **Scope Limitation**
 ``` 
-    read_driver,
-    write_driver,
-    delete_driver
+    read_driver
 ```
 
 ## Show Driver By Id
@@ -82,8 +80,6 @@ isApproved | Boolean
 * **Scope Limitation**
 ```
     read_driver
-    write_driver
-    delete_driver
 ```
 ## Delete User
 
@@ -93,6 +89,10 @@ isApproved | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Scope Limitation**
+```
+    delete_driver
+```
 
 ## Put Driver
 
@@ -104,6 +104,10 @@ isApproved | Boolean
 > `noHandphone | String`
 > `noIdentitas | String`
 > `noPolisi | String`
+* **Scope Limitation**
+```
+    trust_driver
+```
 
 ## Post Driver
 
@@ -115,6 +119,10 @@ isApproved | Boolean
 > `noHandphone | String`
 > `noIdentitas | String`
 > `noPolisi | String`
+* **Scope Limitation**
+```
+    trust_driver
+```
 
 ## Patch Driver
 
@@ -126,6 +134,10 @@ isApproved | Boolean
 > `noHandphone | String`
 > `noIdentitas | String`
 > `noPolisi | String`
+* **Scope Limitation**
+```
+    write_driver
+```
 
 # Restaurant API
 
@@ -157,8 +169,6 @@ isPremium | Boolean
 * **Scope Limitation**
 ```
     read_restaurant
-    write_restaurant
-    delete_restaurant
 ```
 
 ## Show Restaurant By Id
@@ -180,10 +190,7 @@ isPremium | Boolean
 * **Scope Limitation**
 ```
     read_restaurant
-    write_restaurant
-    delete_restaurant
 ```
-
 ## Delete Restaurant
 * **URL** `restaurant/{id}`
 * **Method:** `DELETE`
@@ -191,7 +198,10 @@ isPremium | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
-
+* **Scope Limitation**
+```
+    delete_restaurant
+```
 ## Put Restaurant
 
 * **URL** `restaurant/{id}`
@@ -200,6 +210,10 @@ isPremium | Boolean
 `id=[Long]`
 * **Data Parameters**
 > `alamat | String`
+* **Scope Limitation**
+```
+    trust_restaurant
+```
 
 ## Post Restaurant
 
@@ -209,6 +223,10 @@ isPremium | Boolean
 `none`
 * **Data Parameters**
 > `alamat | String`
+* **Scope Limitation**
+```
+    trust_restaurant
+```
 
 ## Patch Restaurant
 
@@ -218,6 +236,10 @@ isPremium | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Scope Limitation**
+```
+    write_restaurant
+```
 
 # User API
 
@@ -273,8 +295,6 @@ password | String
 * **Scope Limitation**
 ```
     read_user
-    write_user
-    delete_user
 ```
 
 ## Show User By Id
@@ -306,8 +326,6 @@ password | String
 * **Scope Limitation**
 ```
     read_user
-    write_user
-    delete_user
 ```
 
 ## Post User
@@ -319,6 +337,10 @@ password | String
 * **Data Parameters**
 > `noIdentitas | String`
 > `noHandphone | String`
+* **Scope Limitation**
+```
+    trust_user
+```
 
 ## Put User
 
@@ -329,6 +351,10 @@ password | String
 * **Data Parameters**
 > `noIdentitas | String`
 > `noHandphone | String`
+* **Scope Limitation**
+```
+    trust_user
+```
 
 ## Delete User
 
@@ -338,3 +364,7 @@ password | String
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Scope Limitation**
+```
+    delete_user
+```
