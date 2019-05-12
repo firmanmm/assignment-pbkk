@@ -34,6 +34,44 @@ isApproved | Boolean
 `none`
 * **Data Parameters** 
 `none`
+* **Sample Request**
+```
+{
+    Request URL : 10.151.37.43:8080/users
+}
+```
+* **Mandatory Attribute**
+```
+    
+```
+
+* **Sample Output**
+```
+    [
+        {
+            "id": 20,
+            "created_at": "2019-05-07T01:22:31.000+0000",
+            "deleted_at": null,
+            "no_identitas": "333222",
+            "nama": "3131",
+            "alamat": null,
+            "no_handphone": "333",
+            "email": null,
+            "is_activated": null
+        },
+        {
+            "id": 2,
+            "created_at": "2019-05-06T14:48:34.000+0000",
+            "deleted_at": null,
+            "no_identitas": "123",
+            "nama": null,
+            "alamat": "Test Alamat",
+            "no_handphone": "321",
+            "email": "mail@gmail.com",
+            "is_activated": null
+        }
+    ]
+```
 
 ## Show Driver By Id
 
@@ -43,6 +81,24 @@ isApproved | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Sample Request**
+```
+    Request URL : 10.151.37.43:8080/users/20
+```
+* **Sample Output**
+```
+    {
+        "id": 20,
+        "created_at": "2019-05-07T01:22:31.000+0000",
+        "deleted_at": null,
+        "no_identitas": "333222",
+        "nama": "3131",
+        "alamat": null,
+        "no_handphone": "333",
+        "email": null,
+        "is_activated": null
+    }
+```
 ## Delete User
 
 * **URL** `drivers/{id}`
