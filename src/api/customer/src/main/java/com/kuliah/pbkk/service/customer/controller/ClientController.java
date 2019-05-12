@@ -1,6 +1,7 @@
 package com.kuliah.pbkk.service.customer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,24 +20,25 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 	
+	@PreAuthorize("#oauth2.hasScope('read_client')")
 	@GetMapping("/clients")
 	public Iterable<Client> getAllClient() {
 		return clientService.findAll();
 		
 	}
-	
+	@PreAuthorize("#oauth2.hasScope('read_client')")
 	@GetMapping("/clients/{id}")
 	public Client getClientById(
 			@PathVariable Long id) {
 		return clientService.findById(id).get();
 	}
-	
+	@PreAuthorize("#oauth2.hasScope('trust_client')")	
 	@PostMapping("/clients") 
 	public Client postClient(
 			@ModelAttribute Client client) {
 		return clientService.save(client);
 	}
-	
+	@PreAuthorize("#oauth2.hasScope('trust_client')")
 	@PutMapping("/clients/{id}")
 	public Client putClient(
 			@PathVariable Long id, 
@@ -44,7 +46,7 @@ public class ClientController {
 		client.setId(id);
 		return clientService.save(client);
 	}
-	
+	@PreAuthorize("#oauth2.hasScope('create_client')")	
 	@PatchMapping("/clients/{id}")
 	public Client patchClient(
 			@PathVariable Long id, 
@@ -52,7 +54,7 @@ public class ClientController {
 		client.setId(id);
 		return clientService.update(client);
 	}
-	
+	@PreAuthorize("#oauth2.hasScope('delete_client')")
 	@DeleteMapping("/clients/{id}")
 	public void deleteClient(
 			@PathVariable Long id) {
