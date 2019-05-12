@@ -126,7 +126,7 @@ isApproved | Boolean
 
 ## Put Driver
 * **URL** `drivers/{id}`
-* **Method** `POST`
+* **Method** `PUT`
 * **URL Parameters**
 `id=[Long]`
 * **Data Parameters**
