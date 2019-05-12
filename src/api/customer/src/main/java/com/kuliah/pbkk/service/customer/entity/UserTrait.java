@@ -3,7 +3,11 @@ package com.kuliah.pbkk.service.customer.entity;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kuliah.pbkk.service.customer.exception.BadRequestException;
+import com.kuliah.pbkk.service.customer.utility.RegExpPattern;
 
 @MappedSuperclass
 public abstract class UserTrait extends Data {
@@ -58,6 +62,38 @@ public abstract class UserTrait extends Data {
 	}
 	public void setIsActivated(Boolean isActivated) {
 		this.isActivated = isActivated;
+	}
+	
+	@Override
+	public void validate() {
+		
+		if(noIdentitas != null && noIdentitas.length() > 0) {
+			if(!noIdentitas.matches(RegExpPattern.numeric) && noIdentitas.length() != 14) {
+				throw new BadRequestException("Not a valid noIdentity!");
+			}
+		}
+		
+		if((email != null && email.length() > 0)) {
+			if(!email.matches(RegExpPattern.email)) {
+				throw new BadRequestException("Email is not an valid email!");
+			}
+		}
+		if((nama != null && nama.length() > 0)) {
+			if(!nama.matches(RegExpPattern.name)){
+				throw new BadRequestException("Not a valid name!");
+
+			}
+		}
+		if(password != null) {
+			if(password.length < 4) {
+				throw new BadRequestException("Password too short! Min 4");
+			}
+		}
+		if(noHandphone != null && noHandphone.length() > 0) {
+			if(noHandphone.matches(RegExpPattern.handphone)) {
+				throw new BadRequestException("Handphone number is invalid! Min 10, Max 14");
+			}
+		}
 	}
 	
 	

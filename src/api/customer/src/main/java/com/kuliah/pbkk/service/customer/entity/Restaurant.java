@@ -7,6 +7,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.kuliah.pbkk.service.customer.exception.BadRequestException;
+import com.kuliah.pbkk.service.customer.utility.RegExpPattern;
+
 
 @Entity
 @Table(name="restaurants", indexes={
@@ -50,5 +53,14 @@ public class Restaurant extends Data {
 	}
 	public void setPemilik(User pemilik) {
 		this.pemilik = pemilik;
+	}
+	
+	@Override
+	public void validate() {
+		if(nama != null && nama.length() > 0) {
+			if(!nama.matches(RegExpPattern.name)) {
+				throw new BadRequestException("Not a valid name!");
+			}
+		}
 	}
 }
