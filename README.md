@@ -121,7 +121,7 @@ isApproved | Boolean
 `none`
 * **Scope Limitation**
 ```
-    delete_driver
+    delete_user
 ```
 
 ## Put Driver
@@ -133,6 +133,13 @@ isApproved | Boolean
 > `noHandphone | String`
 > `noIdentitas | String`
 > `noPolisi | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
 * **Scope Limitation**
 ```
     trust_driver
@@ -147,6 +154,17 @@ isApproved | Boolean
 > `noHandphone | String`
 > `noIdentitas | String`
 > `noPolisi | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     trust_driver
@@ -162,6 +180,17 @@ isApproved | Boolean
 > `noHandphone | String`
 > `noIdentitas | String`
 > `noPolisi | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     write_driver
@@ -276,6 +305,17 @@ isPremium | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     delete_restaurant
@@ -288,6 +328,17 @@ isPremium | Boolean
 `id=[Long]`
 * **Data Parameters**
 > `alamat | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     trust_restaurant
@@ -301,6 +352,17 @@ isPremium | Boolean
 `none`
 * **Data Parameters**
 > `alamat | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     trust_restaurant
@@ -314,6 +376,17 @@ isPremium | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     write_restaurant
@@ -415,6 +488,17 @@ password | String
 * **Data Parameters**
 > `noIdentitas | String`
 > `noHandphone | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     trust_user
@@ -429,6 +513,17 @@ password | String
 * **Data Parameters**
 > `noIdentitas | String`
 > `noHandphone | String`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     trust_user
@@ -442,6 +537,17 @@ password | String
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Sample Request**
+```
+Body :
+    {
+        
+    }
+```
+* **Sample Output**
+```
+
+```
 * **Scope Limitation**
 ```
     delete_user
