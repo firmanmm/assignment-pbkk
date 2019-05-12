@@ -40,11 +40,38 @@ isApproved | Boolean
     Request URL : 10.151.37.43:8080/drivers
 }
 ```
-* **Mandatory Attribute**
-``` 
-```
 * **Sample Output**
 ```
+[
+    {
+        "id": 11,
+        "created_at": "2019-05-06T16:29:58.000+0000",
+        "deleted_at": null,
+        "no_identitas": "333dd",
+        "nama": null,
+        "alamat": null,
+        "no_handphone": "12333",
+        "email": null,
+        "is_activated": null,
+        "no_polisi": "polisi222",
+        "jenis_kendaraan": null,
+        "is_approved": null
+    },
+    {
+        "id": 14,
+        "created_at": "2019-05-06T16:30:47.000+0000",
+        "deleted_at": null,
+        "no_identitas": "333dd3",
+        "nama": null,
+        "alamat": null,
+        "no_handphone": "123333",
+        "email": null,
+        "is_activated": null,
+        "no_polisi": "polisi222dd",
+        "jenis_kendaraan": null,
+        "is_approved": null
+    }
+]
 ```
 * **Scope Limitation**
 ``` 
@@ -61,21 +88,24 @@ isApproved | Boolean
 `none`
 * **Sample Request**
 ```
-    Request URL : 10.151.37.43:8080/drivers/20
+    Request URL : 10.151.37.43:8080/drivers/11
 ```
 * **Sample Output**
 ```
-    {
-        "id": 20,
-        "created_at": "2019-05-07T01:22:31.000+0000",
-        "deleted_at": null,
-        "no_identitas": "333222",
-        "nama": "3131",
-        "alamat": null,
-        "no_handphone": "333",
-        "email": null,
-        "is_activated": null
-    }
+{
+    "id": 11,
+    "created_at": "2019-05-06T16:29:58.000+0000",
+    "deleted_at": null,
+    "no_identitas": "333dd",
+    "nama": null,
+    "alamat": null,
+    "no_handphone": "12333",
+    "email": null,
+    "is_activated": null,
+    "no_polisi": "polisi222",
+    "jenis_kendaraan": null,
+    "is_approved": null
+}
 ```
 * **Scope Limitation**
 ```
@@ -95,7 +125,6 @@ isApproved | Boolean
 ```
 
 ## Put Driver
-
 * **URL** `drivers/{id}`
 * **Method** `POST`
 * **URL Parameters**
@@ -110,7 +139,6 @@ isApproved | Boolean
 ```
 
 ## Post Driver
-
 * **URL** `/driver`
 * **Method** `POST`
 * **URL Parameters**
@@ -160,11 +188,52 @@ isPremium | Boolean
 `none`
 * **Sample Request**
 ```
-    Request URL: 10.151.37.43/restaurant
+    Request URL: 10.151.37.43/restaurants
 ```
 * **Sample Output**
 ```
-
+[
+    {
+        "id": 15,
+        "created_at": "2019-05-06T16:34:26.000+0000",
+        "deleted_at": null,
+        "pemilik": null,
+        "nama": null,
+        "deskripsi": null,
+        "alamat": null,
+        "is_premium": null
+    },
+    {
+        "id": 16,
+        "created_at": "2019-05-06T16:38:28.000+0000",
+        "deleted_at": null,
+        "pemilik": null,
+        "nama": null,
+        "deskripsi": null,
+        "alamat": null,
+        "is_premium": null
+    },
+    {
+        "id": 17,
+        "created_at": "2019-05-06T16:39:13.000+0000",
+        "deleted_at": null,
+        "pemilik": null,
+        "nama": null,
+        "deskripsi": null,
+        "alamat": null,
+        "is_premium": null
+    },
+    {
+        "id": 18,
+        "created_at": "2019-05-06T16:40:33.000+0000",
+        "deleted_at": null,
+        "pemilik": null,
+        "nama": null,
+        "deskripsi": null,
+        "alamat": "333",
+        "is_premium": null
+    }
+]
 ```
 * **Scope Limitation**
 ```
@@ -181,11 +250,20 @@ isPremium | Boolean
 `none`
 * **Sample Request**
 ```
-    Request URL: 10.151.37.43/restaurant/30
+    Request URL: 10.151.37.43/restaurant/15
 ```
 * **Sample Output**
 ```
-
+    {
+        "id": 15,
+        "created_at": "2019-05-06T16:34:26.000+0000",
+        "deleted_at": null,
+        "pemilik": null,
+        "nama": null,
+        "deskripsi": null,
+        "alamat": null,
+        "is_premium": null
+    }
 ```
 * **Scope Limitation**
 ```
