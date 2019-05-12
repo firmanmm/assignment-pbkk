@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import com.kuliah.pbkk.service.customer.entity.Restaurant;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, Long> {
-	@Query("UPDATE FROM restaurants SET `deleted_at` = CURRENT_TIMESTAMP WHERE id = ?1 AND `deleted_at` IS NULL")
+	@Query(value="UPDATE restaurants SET deleted_at = NOW() WHERE id = ?1 AND deleted_at IS NULL",nativeQuery=true)
 	public void markDelete(Long id);
 }

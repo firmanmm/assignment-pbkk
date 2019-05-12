@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.kuliah.pbkk.service.customer.entity.Client;
 
 public interface ClientRepository extends CrudRepository<Client, Long> {
-	@Query("UPDATE FROM clients SET `deleted_at` = CURRENT_TIMESTAMP WHERE id = ?1 AND `deleted_at` IS NULL")
+	@Query(value="UPDATE clients SET deleted_at = NOW() WHERE id = ?1 AND deleted_at IS NULL", nativeQuery=true)
 	public void markDelete(Long id);
 	public Client getByIdentifier(String identifier);
 }

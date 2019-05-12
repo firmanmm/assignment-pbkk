@@ -13,6 +13,6 @@ public interface DriverRepository extends CrudRepository<Driver, Long> {
 	public Driver getByNoHandphone(String noHandphone);
 	public Driver getByNoPolisi(String noPolisi);
 	public List<Driver> getByJenisKendaraan(String jenisKendaraan);
-	@Query("UPDATE FROM drivers SET `deleted_at` = CURRENT_TIMESTAMP WHERE id = ?1 AND `deleted_at` IS NULL")
+	@Query(value="UPDATE drivers SET deleted_at = NOW() WHERE id = ?1 AND deleted_at IS NULL", nativeQuery=true)
 	public void markDelete(Long id);
 }
