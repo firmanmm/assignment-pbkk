@@ -172,14 +172,24 @@ Body :
 > `noPolisi | String`
 * **Sample Request**
 ```
-Body :
-    {
-        
-    }
+    drivers?noHandphone=085123456789&noPolisi=c1234d&noIdentitas=12345324
 ```
 * **Sample Output**
 ```
-
+{
+    "id": 6,
+    "created_at": "2019-05-13T17:32:18.714+0000",
+    "deleted_at": null,
+    "no_identitas": "12345324,45685321",
+    "nama": null,
+    "alamat": null,
+    "no_handphone": "085123456789",
+    "email": null,
+    "is_activated": null,
+    "no_polisi": "c1234d,b1234xx",
+    "jenis_kendaraan": null,
+    "is_approved": null
+}
 ```
 * **Scope Limitation**
 ```
@@ -370,14 +380,20 @@ Body :
 > `alamat | String`
 * **Sample Request**
 ```
-Body :
-    {
-        
-    }
+/restaurants?alamat=jalan raya kebagusan city   
 ```
 * **Sample Output**
 ```
-
+{
+    "id": 14,
+    "created_at": "2019-05-13T17:36:10.859+0000",
+    "deleted_at": null,
+    "pemilik": null,
+    "nama": null,
+    "deskripsi": null,
+    "alamat": "jalan raya kebagusan city",
+    "is_premium": null
+}
 ```
 * **Scope Limitation**
 ```
