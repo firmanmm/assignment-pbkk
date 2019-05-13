@@ -492,7 +492,11 @@ password | String
 ```
 Body :
     {
-        
+        "no_identitas": "12344",
+        "nama": null,
+        "alamat": "Test Alamart",
+        "no_handphone": "32114",
+        "email": "maile@gmail.com"
     }
 ```
 * **Sample Output**
@@ -517,7 +521,9 @@ Body :
 ```
 Body :
     {
-        
+        "no_identitas": "12344",
+        "nama": "Jaenuddin",
+        "alamat": "Test Alamart", 
     }
 ```
 * **Sample Output**
@@ -539,10 +545,8 @@ Body :
 `none`
 * **Sample Request**
 ```
-Body :
-    {
-        
-    }
+    Request URL;  https://rendoru.com/kuliah/pbkk/users
+    With DELETE request
 ```
 * **Sample Output**
 ```
