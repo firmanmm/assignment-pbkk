@@ -119,6 +119,21 @@ isApproved | Boolean
 `id=[Long]`
 * **Data Parameters**
 `none`
+* **Sample Request**
+```
+    Request URL: https://rendoru.com/kuliah/pbkk/users/6
+    With DELETE method
+```
+* **Sample Output**
+```
+{
+    "timestamp": "2019-05-13T17:53:07.217+0000",
+    "status": 404,
+    "error": "Not Found",
+    "message": "No message available",
+    "path": "/6"
+}
+```
 * **Scope Limitation**
 ```
     delete_user
@@ -137,8 +152,12 @@ isApproved | Boolean
 ```
 Body :
     {
-        
+        "alamat": "Test Almamater",
+        "jenis_kendaraan": motor
     }
+```
+* **Sample Output**
+```
 ```
 * **Scope Limitation**
 ```
@@ -158,7 +177,13 @@ Body :
 ```
 Body :
     {
-        
+        "no_identitas": "12344",
+        "nama": null,
+        "alamat": "Test Alamart",
+        "no_handphone": "32114",
+        "email": "maile@gmail.com",
+        "no_polisi": "b3413d",
+        "jenis_kendaraan": mobil
     }
 ```
 * **Sample Output**
@@ -307,10 +332,8 @@ isPremium | Boolean
 `none`
 * **Sample Request**
 ```
-Body :
-    {
-        
-    }
+    Request URL:  https://rendoru.com/kuliah/pbkk/drivers/6
+    with DELETE method
 ```
 * **Sample Output**
 ```
@@ -332,7 +355,10 @@ Body :
 ```
 Body :
     {
-        
+        "pemilik": hasan,
+        "nama": hisana,
+        "deskripsi": ayam enak,
+        "alamat": "jalan raya ciputra",
     }
 ```
 * **Sample Output**
@@ -356,7 +382,11 @@ Body :
 ```
 Body :
     {
-        
+        "pemilik": hasan,
+        "nama": hisana,
+        "deskripsi": ayam enak,
+        "alamat": "jalan raya ciputra",
+        "is_premium": null
     }
 ```
 * **Sample Output**
@@ -545,7 +575,7 @@ Body :
 `none`
 * **Sample Request**
 ```
-    Request URL;  https://rendoru.com/kuliah/pbkk/users
+    Request URL:  https://rendoru.com/kuliah/pbkk/users
     With DELETE request
 ```
 * **Sample Output**
