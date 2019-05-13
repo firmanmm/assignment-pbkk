@@ -14,8 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	
     
 	@Override
     @Bean
