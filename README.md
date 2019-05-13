@@ -679,7 +679,7 @@ scopes | string
 ]
 ```
 
-## Show Clients by ID
+## Show Client by ID
 * **URL:** `/clients/{id}`
 * **Method:** `GET` 
 * **URL Parameters**
@@ -701,7 +701,7 @@ scopes | string
 }
 ```
 
-## Put Clients
+## Put Client
 * **URL:** `/clients/`
 * **Method:** `PUT` 
 * **URL Parameters**
@@ -715,7 +715,7 @@ scopes | string
 ```
 ```
 
-## Post Clients
+## Post Client
 * **URL:** `/clients/`
 * **Method:** `POST` 
 * **URL Parameters**
@@ -729,7 +729,7 @@ scopes | string
 ```
 ```
 
-## Delete Clients
+## Delete Client
 * **URL:** `/clients/{id}`
 * **Method:** `DELETE` 
 * **URL Parameters**
