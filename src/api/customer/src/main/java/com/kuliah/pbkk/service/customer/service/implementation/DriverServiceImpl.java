@@ -27,8 +27,7 @@ public class DriverServiceImpl implements DriverService {
 
 	@Override
 	public void deleteById(Long id) {
-		driverRepository.deleteById(id);
-		
+		driverRepository.markDelete(id);
 	}
 
 	@Override

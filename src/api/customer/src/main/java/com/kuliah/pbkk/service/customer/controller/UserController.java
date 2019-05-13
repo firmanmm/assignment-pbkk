@@ -1,10 +1,8 @@
 package com.kuliah.pbkk.service.customer.controller;
 
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,24 +20,28 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-	
+
+	@PreAuthorize("#oauth2.hasScope('read_user')")
 	@GetMapping("/users")
 	public Iterable<User> getAllUser() {
 		return userService.findAll();
 	}
 	
+	@PreAuthorize("#oauth2.hasScope('read_user')")
 	@GetMapping("/users/{id}")
 	public User getUserById(
 			@PathVariable Long id) {
 		return userService.findById(id).get();
 	}
 	
+	@PreAuthorize("#oauth2.hasScope('trust_user')")
 	@PostMapping("/users")
 	public User postUser(
 			@ModelAttribute User user) {
 		return userService.save(user);
 	}
 	
+	@PreAuthorize("#oauth2.hasScope('trust_user')")
 	@PutMapping("/users/{id}")
 	public User putUser(
 			@PathVariable Long id, 
@@ -48,6 +50,7 @@ public class UserController {
 		return userService.save(user);
 	}
 	
+	@PreAuthorize("#oauth2.hasScope('write_user')")
 	@PatchMapping("/users/{id}")
 	public User patchUser(
 			@PathVariable Long id, 
@@ -56,6 +59,7 @@ public class UserController {
 		return userService.update(user);
 	}
 	
+	@PreAuthorize("#oauth2.hasScope('delete_user')")
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(
 			@PathVariable Long id) {

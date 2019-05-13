@@ -11,6 +11,22 @@ Ananda Afryan -  05111640000147
 ## PDM
 ![PDM](datamodel/PDM.png)
 
+# Developers
+This service provide an implementation of OAuth2 standard. Please use the password grant, and refresh token grant inorder to obtain your access key. Read more about password grant here : https://www.oauth.com/oauth2-servers/access-tokens/password-grant/. Please use basic authentication to access our token endpoints. 
+```
+***host*** might be replaced with something else
+host/oauth/token        //For retreiving your token
+host/oauth/check_token  //For resources server that wants to check given token
+```
+Here is some diagrams for you :>. But please skip the user login form part since we just provide an API Endpoint. 
+![Password Grant Flow](https://cdn-images-1.medium.com/max/2600/1*wkgiXdBnGof02eMYyqzWiQ.png)
+
+## Resource Access
+Inorder to access resources that is registered on this service please contact one of our team members to get your `access credentials` to be used for password grant flow. Also some endpoints may require you to have the required scope to be able to access it. Let's assume that there is only one user in our service and that is `customer` with password `customer` to simplify our access.
+
+## Resource Provider
+If you want to register your service to us, please contact one of our team members so your service can be registered for token checking. Also, you are responsible for your own resources since we only provide token checking service.
+
 # Driver API
 
 ## Structure
@@ -175,6 +191,7 @@ Body :
 > `noPolisi | String`
 * **Sample Request**
 ```
+<<<<<<< HEAD
 Body :
     {
         "no_identitas": "12344",
@@ -185,10 +202,26 @@ Body :
         "no_polisi": "b3413d",
         "jenis_kendaraan": mobil
     }
+=======
+    drivers?noHandphone=085123456789&noPolisi=c1234d&noIdentitas=12345324
+>>>>>>> master
 ```
 * **Sample Output**
 ```
-
+{
+    "id": 6,
+    "created_at": "2019-05-13T17:32:18.714+0000",
+    "deleted_at": null,
+    "no_identitas": "12345324,45685321",
+    "nama": null,
+    "alamat": null,
+    "no_handphone": "085123456789",
+    "email": null,
+    "is_activated": null,
+    "no_polisi": "c1234d,b1234xx",
+    "jenis_kendaraan": null,
+    "is_approved": null
+}
 ```
 * **Scope Limitation**
 ```
@@ -380,6 +413,7 @@ Body :
 > `alamat | String`
 * **Sample Request**
 ```
+<<<<<<< HEAD
 Body :
     {
         "pemilik": hasan,
@@ -388,10 +422,22 @@ Body :
         "alamat": "jalan raya ciputra",
         "is_premium": null
     }
+=======
+/restaurants?alamat=jalan raya kebagusan city   
+>>>>>>> master
 ```
 * **Sample Output**
 ```
-
+{
+    "id": 14,
+    "created_at": "2019-05-13T17:36:10.859+0000",
+    "deleted_at": null,
+    "pemilik": null,
+    "nama": null,
+    "deskripsi": null,
+    "alamat": "jalan raya kebagusan city",
+    "is_premium": null
+}
 ```
 * **Scope Limitation**
 ```
@@ -586,3 +632,4 @@ Body :
 ```
     delete_user
 ```
+# Clients API

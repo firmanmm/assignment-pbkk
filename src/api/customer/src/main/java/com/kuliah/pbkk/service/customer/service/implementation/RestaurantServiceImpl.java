@@ -22,7 +22,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public void deleteById(Long id) {
-		restaurantRepository.deleteById(id);
+		restaurantRepository.markDelete(id);
 	}
 
 	@Override
