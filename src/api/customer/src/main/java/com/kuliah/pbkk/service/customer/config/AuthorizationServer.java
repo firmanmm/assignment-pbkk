@@ -3,6 +3,7 @@ package com.kuliah.pbkk.service.customer.config;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -42,7 +43,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey("private-key");
+        converter.setSigningKey(BCrypt.gensalt());
         return converter;
     }
     

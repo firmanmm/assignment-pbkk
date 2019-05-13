@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kuliah.pbkk.service.customer.entity.Restaurant;
@@ -36,7 +37,9 @@ public class RestaurantController {
 	@PreAuthorize("#oauth2.hasScope('trust_restaurant')")	
 	@PostMapping("/restaurants") 
 	public Restaurant postRestaurant(
-			@ModelAttribute Restaurant restaurant) {
+			@ModelAttribute Restaurant restaurant,
+			@RequestParam Long userId) {
+		restaurantService.populateWithUser(restaurant, userId);
 		return restaurantService.save(restaurant);
 	}
 	
@@ -44,16 +47,21 @@ public class RestaurantController {
 	@PutMapping("/restaurants/{id}")
 	public Restaurant putRestaurant(
 			@PathVariable Long id, 
-			@ModelAttribute Restaurant restaurant) {
+			@ModelAttribute Restaurant restaurant,
+			@RequestParam Long userId) {
 		restaurant.setId(id);
+		restaurantService.populateWithUser(restaurant, userId);
 		return restaurantService.save(restaurant);
 	}
+	
 	@PreAuthorize("#oauth2.hasScope('write_restaurant')")		
 	@PatchMapping("/restaurants/{id}")
 	public Restaurant patchRestaurant(
 			@PathVariable Long id, 
-			@ModelAttribute Restaurant restaurant) {
+			@ModelAttribute Restaurant restaurant,
+			@RequestParam(required=false) Long userId) {
 		restaurant.setId(id);
+		restaurantService.populateWithUser(restaurant, userId);
 		return restaurantService.update(restaurant);
 	}
 	

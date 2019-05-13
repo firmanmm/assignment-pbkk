@@ -43,12 +43,9 @@ public class Client extends Data{
 	}
 
 
-
 	public void setSecret(String secret) {
 		this.secret = secret;
 	}
-
-
 
 	@Override
 	public void validate() {

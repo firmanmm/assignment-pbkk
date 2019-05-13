@@ -18,6 +18,7 @@ public class DriverServiceImpl implements DriverService {
 	
 	@Override
 	public Driver save(Driver data) {
+		data.validate();
 		if (data.getPassword() != null && data.getPassword().length > 0 ) {
 			String hashed = BCrypt.hashpw(data.getPassword().toString(), BCrypt.gensalt());
 			data.setPassword(hashed.getBytes());
@@ -44,7 +45,10 @@ public class DriverServiceImpl implements DriverService {
 	public Driver update(Driver data) {
 		Driver original = driverRepository.findById(data.getId()).get();
 		original.merge(data);
-		return driverRepository.save(original);
+		if(data.getPassword() != null && data.getPassword().length > 0) {
+			data.setPassword(null);
+		}
+		return this.save(original);
 	}
 	
 }

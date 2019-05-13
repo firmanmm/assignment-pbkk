@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public User save(User data) {
+		data.validate();
 		if(data.getPassword() != null && data.getPassword().length > 0) {
 			String hashed = BCrypt.hashpw(data.getPassword().toString(), BCrypt.gensalt());
 			data.setPassword(hashed.getBytes());
@@ -44,10 +45,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User update(User data) {
 		User original = userRepository.findById(data.getId()).get();
-		System.out.println(original.getNoHandphone());
 		original.merge(data);
-		System.out.println(original.getNoHandphone());
-		return userRepository.save(original);
+		if(data.getPassword() != null && data.getPassword().length > 0) {
+			data.setPassword(null);
+		}
+		return this.save(original);
 	}
 
 	

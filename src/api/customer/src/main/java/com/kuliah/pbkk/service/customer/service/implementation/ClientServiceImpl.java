@@ -43,6 +43,7 @@ public class ClientServiceImpl implements ClientService{
 		return clientRepository.findById(id);
 	}
 	
+	
 
 
 }
