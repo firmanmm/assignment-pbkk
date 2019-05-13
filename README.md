@@ -621,7 +621,7 @@ Body :
 `none`
 * **Sample Request**
 ```
-    Request URL:  https://rendoru.com/kuliah/pbkk/users
+    Request URL:  https://rendoru.com/kuliah/pbkk/users/1
     With DELETE request
 ```
 * **Sample Output**
@@ -633,3 +633,128 @@ Body :
     delete_user
 ```
 # Clients API
+
+## Structure
+```
+identifier | String
+secret | string
+scopes | string
+```
+
+## Show All Clients
+* **URL:** `/clients`
+* **Method:** `GET` 
+* **URL Parameters**
+`none`
+* **Data Parameters**
+`none`
+* **Sample Request**
+```
+    Request URL:  https://rendoru.com/kuliah/pbkk/clients
+```
+* **Sample Output**
+```
+    [
+    {
+        "id": 1,
+        "created_at": null,
+        "deleted_at": null,
+        "identifier": "admin-svc",
+        "scopes": "delete_client read_client write_client   trust_client read_user write_user trust_user delete_user read_restaurant write_restaurant trust_restaurant delete_restaurant read_driver write_driver trust_driver delete_driver"
+    },
+    {
+        "id": 2,
+        "created_at": null,
+        "deleted_at": null,
+        "identifier": "read-user",
+        "scopes": "read_user"
+    },
+    {
+        "id": 3,
+        "created_at": null,
+        "deleted_at": null,
+        "identifier": "resource",
+        "scopes": "none"
+    }
+]
+```
+
+## Show Clients by ID
+* **URL:** `/clients/{id}`
+* **Method:** `GET` 
+* **URL Parameters**
+`id = [Long]`
+* **Data Parameters**
+`none`
+* **Sample Request**
+```
+    Request URL:  https://rendoru.com/kuliah/pbkk/clients/2
+```
+* **Sample Output**
+```
+{
+    "id": 2,
+    "created_at": null,
+    "deleted_at": null,
+    "identifier": "read-user",
+    "scopes": "read_user"
+}
+```
+
+## Put Clients
+* **URL:** `/clients/`
+* **Method:** `PUT` 
+* **URL Parameters**
+`none`
+* **Data Parameters**
+`identifier = [String]`
+* **Sample Request**
+```
+```
+* **Sample Output**
+```
+```
+
+## Post Clients
+* **URL:** `/clients/`
+* **Method:** `POST` 
+* **URL Parameters**
+`none`
+* **Data Parameters**
+`identifier = [String]`
+* **Sample Request**
+```
+```
+* **Sample Output**
+```
+```
+
+## Delete Clients
+* **URL:** `/clients/{id}`
+* **Method:** `DELETE` 
+* **URL Parameters**
+`id = [Long]`
+* **Data Parameters**
+`none`
+* **Sample Request**
+```
+    Request URL:  https://rendoru.com/kuliah/pbkk/clients/2
+    With DELETE request
+```
+* **Sample Output**
+```
+```
+
+## Patch Clients
+* **URL:** `/clients/`
+* **Method:** `POST` 
+* **URL Parameters**
+`none`
+* **Data Parameters**
+`identifier = [String]`
+* **Sample Request**
+```
+```
+* **Sample Output**
+```
+```
