@@ -90,7 +90,7 @@ public abstract class UserTrait extends Data {
 			}
 		}
 		if(noHandphone != null && noHandphone.length() > 0) {
-			if(noHandphone.matches(RegExpPattern.handphone)) {
+			if(noHandphone.length() > 14 || noHandphone.length() < 10) {
 				throw new BadRequestException("Handphone number is invalid! Min 10, Max 14");
 			}
 		}

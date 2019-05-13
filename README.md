@@ -27,6 +27,114 @@ Inorder to access resources that is registered on this service please contact on
 ## Resource Provider
 If you want to register your service to us, please contact one of our team members so your service can be registered for token checking. Also, you are responsible for your own resources since we only provide token checking service.
 
+# Client API
+
+## Structure
+```
+identifier | String
+secret | string
+scopes | string
+```
+
+## Show all clients
+
+* **URL:** `/clients`
+* **Method:** `GET` 
+* **URL Parameters** 
+`none`
+* **Data Parameters** 
+`none`
+* **Sample Output**
+```
+[
+    {
+        "id": 1,
+        "created_at": null,
+        "deleted_at": null,
+        "identifier": "admin-svc",
+        "scopes": "delete_client read_client write_client trust_client read_user write_user trust_user delete_user read_restaurant write_restaurant trust_restaurant delete_restaurant read_driver write_driver trust_driver delete_driver"
+    },
+    {
+        "id": 2,
+        "created_at": null,
+        "deleted_at": null,
+        "identifier": "read-user",
+        "scopes": "read_user"
+    },
+    {
+        "id": 3,
+        "created_at": null,
+        "deleted_at": null,
+        "identifier": "resource",
+        "scopes": "none"
+    }
+]
+```
+
+## Show Client By Id
+* **URL:** `/clients/{id}`
+* **Method:** `GET` 
+* **Required Scope:** `read_client`
+* **URL Parameters** 
+```
+id | Integer | required
+```
+* **Data Parameters** 
+`none`
+* **Sample Output**
+```
+{
+    "id": 1,
+    "created_at": null,
+    "deleted_at": null,
+    "identifier": "admin-svc",
+    "scopes": "delete_client read_client write_client trust_client read_user write_user trust_user delete_user read_restaurant write_restaurant trust_restaurant delete_restaurant read_driver write_driver trust_driver delete_driver"
+}
+```
+## Create Client
+* **URL:** `/clients`
+* **Method:** `POST`
+* **Required Scope:** `trust_client`
+* **URL Parameters** 
+```
+identifier | String | required
+secret | String | required
+```
+* **Data Parameters** 
+`none`
+* **Sample Output**
+`none`
+
+## Put Client
+* **URL:** `/clients/{id}`
+* **Method:** `PUT` 
+* **Required Scope:** `trust_client`
+* **URL Parameters** 
+```
+identifier | String | required
+secret | String | required
+```
+* **Data Parameters** 
+```
+id | Integer | required
+```
+* **Sample Output**
+`none`
+
+## Delete Client
+* **URL:** `/clients/{id}`
+* **Required Scope:** `delete_client`
+* **Method:** `DELETE` 
+* **URL Parameters** 
+```
+id | Integer | required
+```
+* **Data Parameters** 
+`none`
+* **Sample Output**
+`none`
+
+
 # Driver API
 
 ## Structure
@@ -45,17 +153,12 @@ isApproved | Boolean
 ## Show All Driver
 
 * **URL:** `/drivers`
-* **Method:** `GET` 
+* **Method:** `GET`
+* **Required Scope:** `read_driver`
 * **URL Parameters** 
 `none`
 * **Data Parameters** 
 `none`
-* **Sample Request**
-```
-{
-    Request URL : 10.151.37.43:8080/drivers
-}
-```
 * **Sample Output**
 ```
 [
@@ -89,23 +192,18 @@ isApproved | Boolean
     }
 ]
 ```
-* **Scope Limitation**
-``` 
-    read_driver
-```
 
 ## Show Driver By Id
 
 * **URL** `/drivers/{id}`
 * **Menthod:** `GET`
+* **Required Scope:** `read_driver`
 * **URL Parameters**
-`id=[Long]`
+```
+id | Integer | required
+```
 * **Data Parameters**
 `none`
-* **Sample Request**
-```
-    Request URL : 10.151.37.43:8080/drivers/11
-```
 * **Sample Output**
 ```
 {
@@ -123,135 +221,129 @@ isApproved | Boolean
     "is_approved": null
 }
 ```
-* **Scope Limitation**
-```
-    read_driver
-```
-## Delete User
+## Delete Driver
 
 * **URL** `drivers/{id}`
 * **Method:** `DELETE`
+* **Required Scope:** `delete_driver`
 * **URL Parameters**
-`id=[Long]`
+```
+id | Integer | required
+```
 * **Data Parameters**
 `none`
-* **Sample Request**
-```
-    Request URL: https://rendoru.com/kuliah/pbkk/users/6
-    With DELETE method
-```
-* **Sample Output**
-```
-{
-    "timestamp": "2019-05-13T17:53:07.217+0000",
-    "status": 404,
-    "error": "Not Found",
-    "message": "No message available",
-    "path": "/6"
-}
-```
-* **Scope Limitation**
-```
-    delete_user
-```
+
 
 ## Put Driver
+
 * **URL** `drivers/{id}`
 * **Method** `PUT`
+* **Required Scope:** `trust_driver`
 * **URL Parameters**
-`id=[Long]`
+```
+id | String | required
+```
 * **Data Parameters**
-> `noHandphone | String`
-> `noIdentitas | String`
-> `noPolisi | String`
-* **Sample Request**
 ```
-Body :
-    {
-        "alamat": "Test Almamater",
-        "jenis_kendaraan": motor
-    }
-```
-* **Sample Output**
-```
-```
-* **Scope Limitation**
-```
-    trust_driver
-```
-
-## Post Driver
-* **URL** `/driver`
-* **Method** `POST`
-* **URL Parameters**
-`id=[Long]`
-* **Data Parameters**
-> `noHandphone | String`
-> `noIdentitas | String`
-> `noPolisi | String`
-* **Sample Request**
-```
-<<<<<<< HEAD
-Body :
-    {
-        "no_identitas": "12344",
-        "nama": null,
-        "alamat": "Test Alamart",
-        "no_handphone": "32114",
-        "email": "maile@gmail.com",
-        "no_polisi": "b3413d",
-        "jenis_kendaraan": mobil
-    }
-=======
-    drivers?noHandphone=085123456789&noPolisi=c1234d&noIdentitas=12345324
->>>>>>> master
+nama | String | Valid Name
+alamat | String
+password | String | Min 4 Digit
+email | String | Valid Email
+jenisKendaraan | String | (mobil|motor)
+noHandphone | String | Min 10 Digit | Max 14 Digit | required`
+noIdentitas | String | 14 Digit | required
+noPolisi | String | Alphanumeric | Min 4 Digit | required
 ```
 * **Sample Output**
 ```
 {
-    "id": 6,
-    "created_at": "2019-05-13T17:32:18.714+0000",
+    "id": 38,
+    "created_at": "2019-05-13T19:58:07.488+0000",
     "deleted_at": null,
-    "no_identitas": "12345324,45685321",
+    "no_identitas": "12345678901234",
     "nama": null,
     "alamat": null,
-    "no_handphone": "085123456789",
+    "no_handphone": "12345678901234",
     "email": null,
     "is_activated": null,
-    "no_polisi": "c1234d,b1234xx",
+    "no_polisi": "123454",
     "jenis_kendaraan": null,
     "is_approved": null
 }
 ```
-* **Scope Limitation**
+
+## Post Driver
+* **URL** `/drivers`
+* **Method** `POST`
+* **Required Scope:** `trust_driver`
+* **URL Parameters**
+`none`
+* **Data Parameters**
 ```
-    trust_driver
+nama | String | Valid Name
+alamat | String
+password | String | Min 4 Digit
+email | String | Valid Email
+jenisKendaraan | String | (mobil|motor)
+noHandphone | String | Min 10 Digit | Max 14 Digit | required`
+noIdentitas | String | 14 Digit | required
+noPolisi | String | Alphanumeric | Min 4 Digit | required
+```
+* **Sample Request**
+```
+{
+    "id": 40,
+    "created_at": "2019-05-13T20:01:41.286+0000",
+    "deleted_at": null,
+    "no_identitas": "12345678901233",
+    "nama": null,
+    "alamat": null,
+    "no_handphone": "12345678901233",
+    "email": null,
+    "is_activated": null,
+    "no_polisi": "1234541",
+    "jenis_kendaraan": null,
+    "is_approved": null
+}
 ```
 
 ## Patch Driver
 
 * **URL** `drivers/{id}`
-* **Method** `POST`
+* **Required Scope:** `delete_driver`
+* **Method** `PATCH`
 * **URL Parameters**
-`id=[Long]`
+```
+id | String | required
+```
 * **Data Parameters**
-> `noHandphone | String`
-> `noIdentitas | String`
-> `noPolisi | String`
-* **Sample Request**
 ```
-Body :
-    {
-        
-    }
-```
-* **Sample Output**
+nama | String | Valid Name
+alamat | String
+password | String | Min 4 Digit
+email | String | Valid Email
+jenisKendaraan | String | (mobil|motor)
+noHandphone | String | Min 10 Digit | Max 14 Digit
+noIdentitas | String | 14 Digit
+noPolisi | String | Alphanumeric | Min 4 Digit
 ```
 
+* **Sample Output**
 ```
-* **Scope Limitation**
-```
-    write_driver
+{
+    "id": 26,
+    "created_at": "2019-05-13T20:16:09.000+0000",
+    "deleted_at": null,
+    "no_identitas": "12345678901213",
+    "nama": "kamudd",
+    "alamat": null,
+    "no_handphone": "12345678901222",
+    "email": null,
+    "is_activated": null,
+    "no_polisi": "1234541ee",
+    "jenis_kendaraan": null,
+    "is_approved": null
+}
 ```
 
 # Restaurant API
@@ -273,10 +365,7 @@ isPremium | Boolean
 `none`
 * **Data Parameters**
 `none`
-* **Sample Request**
-```
-    Request URL: 10.151.37.43/restaurants
-```
+
 * **Sample Output**
 ```
 [
@@ -412,20 +501,7 @@ Body :
 * **Data Parameters**
 > `alamat | String`
 * **Sample Request**
-```
-<<<<<<< HEAD
-Body :
-    {
-        "pemilik": hasan,
-        "nama": hisana,
-        "deskripsi": ayam enak,
-        "alamat": "jalan raya ciputra",
-        "is_premium": null
-    }
-=======
-/restaurants?alamat=jalan raya kebagusan city   
->>>>>>> master
-```
+
 * **Sample Output**
 ```
 {
@@ -631,130 +707,4 @@ Body :
 * **Scope Limitation**
 ```
     delete_user
-```
-# Clients API
-
-## Structure
-```
-identifier | String
-secret | string
-scopes | string
-```
-
-## Show All Clients
-* **URL:** `/clients`
-* **Method:** `GET` 
-* **URL Parameters**
-`none`
-* **Data Parameters**
-`none`
-* **Sample Request**
-```
-    Request URL:  https://rendoru.com/kuliah/pbkk/clients
-```
-* **Sample Output**
-```
-    [
-    {
-        "id": 1,
-        "created_at": null,
-        "deleted_at": null,
-        "identifier": "admin-svc",
-        "scopes": "delete_client read_client write_client   trust_client read_user write_user trust_user delete_user read_restaurant write_restaurant trust_restaurant delete_restaurant read_driver write_driver trust_driver delete_driver"
-    },
-    {
-        "id": 2,
-        "created_at": null,
-        "deleted_at": null,
-        "identifier": "read-user",
-        "scopes": "read_user"
-    },
-    {
-        "id": 3,
-        "created_at": null,
-        "deleted_at": null,
-        "identifier": "resource",
-        "scopes": "none"
-    }
-]
-```
-
-## Show Client by ID
-* **URL:** `/clients/{id}`
-* **Method:** `GET` 
-* **URL Parameters**
-`id = [Long]`
-* **Data Parameters**
-`none`
-* **Sample Request**
-```
-    Request URL:  https://rendoru.com/kuliah/pbkk/clients/2
-```
-* **Sample Output**
-```
-{
-    "id": 2,
-    "created_at": null,
-    "deleted_at": null,
-    "identifier": "read-user",
-    "scopes": "read_user"
-}
-```
-
-## Put Client
-* **URL:** `/clients/`
-* **Method:** `PUT` 
-* **URL Parameters**
-`none`
-* **Data Parameters**
-`identifier = [String]`
-* **Sample Request**
-```
-```
-* **Sample Output**
-```
-```
-
-## Post Client
-* **URL:** `/clients/`
-* **Method:** `POST` 
-* **URL Parameters**
-`none`
-* **Data Parameters**
-`identifier = [String]`
-* **Sample Request**
-```
-```
-* **Sample Output**
-```
-```
-
-## Delete Client
-* **URL:** `/clients/{id}`
-* **Method:** `DELETE` 
-* **URL Parameters**
-`id = [Long]`
-* **Data Parameters**
-`none`
-* **Sample Request**
-```
-    Request URL:  https://rendoru.com/kuliah/pbkk/clients/2
-    With DELETE request
-```
-* **Sample Output**
-```
-```
-
-## Patch Clients
-* **URL:** `/clients/`
-* **Method:** `POST` 
-* **URL Parameters**
-`none`
-* **Data Parameters**
-`identifier = [String]`
-* **Sample Request**
-```
-```
-* **Sample Output**
-```
 ```

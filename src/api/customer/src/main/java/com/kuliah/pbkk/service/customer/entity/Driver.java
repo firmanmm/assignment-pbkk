@@ -47,8 +47,8 @@ public class Driver extends UserTrait{
 			}
 		}
 		if(noPolisi != null && noPolisi.length() > 0) {
-			if(!noPolisi.matches(RegExpPattern.alphanumeric) && !(noPolisi.length() > 3)) {
-				throw new BadRequestException("Not a valid vehicle number!");
+			if(!noPolisi.matches(RegExpPattern.alphanumeric) || noPolisi.length() <= 3) {
+				throw new BadRequestException("Not a valid vehicle number! No Polisi : " + noPolisi);
 			}
 		}
 	}

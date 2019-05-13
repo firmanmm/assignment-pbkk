@@ -51,7 +51,7 @@ public class ClientController {
 	public Client patchClient(
 			@PathVariable Long id, 
 			@ModelAttribute Client client) {
-		client.setId(id);
+		client.setId(id);	
 		return clientService.update(client);
 	}
 	@PreAuthorize("#oauth2.hasScope('delete_client')")
