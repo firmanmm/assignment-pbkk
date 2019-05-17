@@ -26,12 +26,12 @@
     <div class="list">
         <list>
             <a href="">User List</a>
-            <a href="">User Register</a>
-            <a href="">Client Register</a>
+            <a href="registerUser.php">User Register</a>
+            <a href="registerClient.php">Client Register</a>
             <a href="">Client List</a>
-            <a href="">Driver Register</a>
+            <a href="registerDriver.php">Driver Register</a>
             <a href="">Driver List</a>
-            <a href="">Restaurant Register</a>
+            <a href="registerResto.php">Restaurant Register</a>
             <a href="">Restaurant List</a>
         </list>
     </div>
