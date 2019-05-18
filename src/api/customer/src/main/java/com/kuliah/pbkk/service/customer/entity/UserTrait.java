@@ -10,7 +10,7 @@ import com.kuliah.pbkk.service.customer.exception.BadRequestException;
 import com.kuliah.pbkk.service.customer.utility.RegExpPattern;
 
 @MappedSuperclass
-public abstract class UserTrait extends Data {
+public abstract class UserTrait extends IdentityTrait {
 	@Column(name="no_identitas", nullable=false)
 	private String noIdentitas;
 	private String nama;
@@ -18,15 +18,9 @@ public abstract class UserTrait extends Data {
 	@Column(name="no_handphone", nullable=false)
 	private String noHandphone;
 	private String email;
-	@JsonIgnore
-	private byte[] password;
+	
 	private Boolean isActivated;
-	public String getNoIdentitas() {
-		return noIdentitas;
-	}
-	public void setNoIdentitas(String noIdentitas) {
-		this.noIdentitas = noIdentitas;
-	}
+	
 	public String getNama() {
 		return nama;
 	}
@@ -51,11 +45,11 @@ public abstract class UserTrait extends Data {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public byte[] getPassword() {
-		return password;
+	public String getNoIdentitas() {
+		return noIdentitas;
 	}
-	public void setPassword(byte[] password) {
-		this.password = password;
+	public void setNoIdentitas(String noIdentitas) {
+		this.noIdentitas = noIdentitas;
 	}
 	public Boolean getIsActivated() {
 		return isActivated;
@@ -66,10 +60,10 @@ public abstract class UserTrait extends Data {
 	
 	@Override
 	public void validate() {
-		
+		super.validate();
 		if(noIdentitas != null && noIdentitas.length() > 0) {
 			if(!noIdentitas.matches(RegExpPattern.numeric) && noIdentitas.length() != 14) {
-				throw new BadRequestException("Not a valid noIdentity!");
+				throw new BadRequestException("Not a valid noIdentity! Expected in numeric format with length == 14");
 			}
 		}
 		
@@ -78,17 +72,14 @@ public abstract class UserTrait extends Data {
 				throw new BadRequestException("Email is not an valid email!");
 			}
 		}
+		
 		if((nama != null && nama.length() > 0)) {
 			if(!nama.matches(RegExpPattern.name)){
 				throw new BadRequestException("Not a valid name!");
 
 			}
 		}
-		if(password != null) {
-			if(password.length < 4) {
-				throw new BadRequestException("Password too short! Min 4");
-			}
-		}
+		
 		if(noHandphone != null && noHandphone.length() > 0) {
 			if(noHandphone.length() > 14 || noHandphone.length() < 10) {
 				throw new BadRequestException("Handphone number is invalid! Min 10, Max 14");

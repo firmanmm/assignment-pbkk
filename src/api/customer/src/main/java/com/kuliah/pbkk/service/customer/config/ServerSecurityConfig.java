@@ -1,20 +1,27 @@
 package com.kuliah.pbkk.service.customer.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.kuliah.pbkk.service.customer.utility.BCryptEncoder;
 
 
 
 @Configuration
 public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
 	@Override
     @Bean
     public AuthenticationManager authenticationManagerBean() 
@@ -23,14 +30,9 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 	
 	@Override
-    @Bean
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-        return super.userDetailsServiceBean();
-	}
-	
-	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("customer").password("{noop}customer").roles("USER","ADMIN");
+		auth.userDetailsService(userDetailsService).passwordEncoder(BCryptEncoder.getEncoder());
 	}
+
 	
 }

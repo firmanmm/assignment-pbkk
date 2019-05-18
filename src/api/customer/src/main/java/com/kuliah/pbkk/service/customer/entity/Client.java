@@ -11,45 +11,35 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="clients", indexes= {
 		@Index(name="idx_identifier", columnList="identifier", unique = true)
 	})
-public class Client extends Data{
+public class Client extends IdentityTrait{
 
-	@Column(unique=true, updatable=false)
-	private String identifier;
-	@JsonIgnore
-	private String secret;
 	private String scopes;
+	private String authorities;
 
 	public String getScopes() {
 		return scopes;
 	}
 
-
 	public void setScopes(String scopes) {
 		this.scopes = scopes;
 	}
 
-
-	public String getIdentifier() {
-		return identifier;
-	}
-
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
-
-	public String getSecret() {
-		return secret;
-	}
-
-
-	public void setSecret(String secret) {
-		this.secret = secret;
+	@Override
+	public void validate() {
+		super.validate();
 	}
 
 	@Override
-	public void validate() {
-		return;
+	public String getPrefix() {
+		return "client_";
+	}
+
+	public String getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(String authorities) {
+		this.authorities = authorities;
 	}
 
 }

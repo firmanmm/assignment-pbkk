@@ -8,9 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kuliah.pbkk.service.customer.entity.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-	public User findByNoIdentitas(String noIdentitas);
-	public User findByEmail(String email);
-	public User findByNoHandphone(String noHandphone);
+	public User getByIdentifier(String identitifer);
+	public User getByNoIdentitas(String noIdentitas);
+	public User getByEmail(String email);
+	public User getByNoHandphone(String noHandphone);
 	@Transactional
 	@Modifying
 	@Query(value="UPDATE users SET deleted_at = NOW() WHERE id = ?1 AND deleted_at IS NULL", nativeQuery=true)

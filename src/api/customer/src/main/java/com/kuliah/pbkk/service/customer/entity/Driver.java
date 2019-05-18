@@ -11,7 +11,9 @@ import com.kuliah.pbkk.service.customer.utility.RegExpPattern;
 
 @Entity
 @Table(name="drivers", indexes={
+		@Index(name="idx_identifier", columnList="identifier", unique = true),
 		@Index(name="idx_no_polisi", columnList="no_polisi", unique = true),
+		@Index(name="idx_no_identitas", columnList="no_identitas", unique=true),
 		@Index(name="idx_no_handphone", columnList="no_handphone", unique=true)})
 public class Driver extends UserTrait{
 	@Column(name="no_polisi", nullable=false)
@@ -51,5 +53,9 @@ public class Driver extends UserTrait{
 				throw new BadRequestException("Not a valid vehicle number! No Polisi : " + noPolisi);
 			}
 		}
+	}
+	@Override
+	public String getPrefix() {
+		return "driver_";
 	}
 }

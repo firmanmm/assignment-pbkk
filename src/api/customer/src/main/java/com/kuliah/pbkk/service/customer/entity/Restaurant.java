@@ -13,8 +13,8 @@ import com.kuliah.pbkk.service.customer.utility.RegExpPattern;
 
 @Entity
 @Table(name="restaurants", indexes={
-		@Index(name="idx_alamat", columnList="alamat", unique = true)})
-public class Restaurant extends Data {
+		@Index(name="idx_identifier", columnList="identifier", unique = true)})
+public class Restaurant extends IdentityTrait {
 	@OneToOne
 	@JoinColumn(name="users_id", referencedColumnName="id")
 	private User pemilik;
@@ -62,5 +62,9 @@ public class Restaurant extends Data {
 				throw new BadRequestException("Not a valid name!");
 			}
 		}
+	}
+	@Override
+	public String getPrefix() {
+		return "restaurant_";
 	}
 }

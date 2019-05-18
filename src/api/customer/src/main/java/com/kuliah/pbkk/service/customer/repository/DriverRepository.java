@@ -8,8 +8,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kuliah.pbkk.service.customer.entity.Driver;
+import com.kuliah.pbkk.service.customer.entity.User;
 
 public interface DriverRepository extends CrudRepository<Driver, Long> {
+	public Driver getByIdentifier(String identitifer);
 	public Driver getByNoIdentitas(String noIdentitas);
 	public Driver getByEmail(String email);
 	public Driver getByNoHandphone(String noHandphone);
