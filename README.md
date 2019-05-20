@@ -12,6 +12,7 @@ Ananda Afryan -  05111640000147
 ![PDM](datamodel/PDM.png)
 
 # Developers
+> Base Endpoint : https://rendoru.com/kuliah/pbkk
 This service provide an implementation of OAuth2 standard. Please use the password grant, and refresh token grant inorder to obtain your access key. Read more about password grant here : https://www.oauth.com/oauth2-servers/access-tokens/password-grant/. Please use basic authentication to access our token endpoints. 
 ```
 ***host*** might be replaced with something else
@@ -21,8 +22,47 @@ host/oauth/check_token  //For resources server that wants to check given token
 Here is some diagrams for you :>. But please skip the user login form part since we just provide an API Endpoint. 
 ![Password Grant Flow](https://cdn-images-1.medium.com/max/2600/1*wkgiXdBnGof02eMYyqzWiQ.png)
 
+There are 3 possible prefix that is required depending on which user's resources that you want to access.
+
+```
+Prefixes :
+user_ : for user based access. Just like the dummy user account.
+restaurant_ : for restaurant based access.
+driver_ : for driver based access.
+```
+
+Example of Request
+```
+URL : https://rendoru.com/kuliah/pbkk/oauth
+====Header====
+client_id = [your_client_id]
+client_password = [your_client_password]
+
+key = client_id:client_password
+base64Key = [base64 of key above]
+
+Authorization : Basic base64Key
+
+=====Post Body===== 
+(URL Encoded Form)
+grant_type = password
+username = [prefix_][username] // Ex. user_customer
+password = [password]
+```
+
+Example of Token Verification :
+```
+URL : https://rendoru.com/kuliah/pbkk/oauth/check_token
+====Header====
+Authorization : Bearer [your_access_token]
+====Post Body====
+(URL Encoded Form)
+token = [token_that_you_want_to_verify]
+```
+
 ## Resource Access
-Inorder to access resources that is registered on this service please contact one of our team members to get your `access credentials` to be used for password grant flow. Also some endpoints may require you to have the required scope to be able to access it. Let's assume that there is only one user in our service and that is `customer` with password `customer` to simplify our access.
+Inorder to access resources that is registered on this service please contact one of our team members to get your `access credentials` to be used for password grant flow. Also some endpoints may require you to have the required scope to be able to access it. There is one dummy user in our service and that is `user_customer` with password `customer` to simplify your testing.
+
 
 ## Resource Provider
 If you want to register your service to us, please contact one of our team members so your service can be registered for token checking. Also, you are responsible for your own resources since we only provide token checking service.
