@@ -23,6 +23,10 @@ public class UserDetailData implements UserDetails{
 		authorities.add(new UserAuthority());
 		return authorities;
 	}
+	
+	public Long getIdentifier() {
+		return identity.getId();
+	}
 
 	@Override
 	public String getPassword() {

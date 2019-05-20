@@ -17,7 +17,7 @@ public class JWTCustomerTokenEnchancer extends JwtAccessTokenConverter{
 		if(authentication.getOAuth2Request().getGrantType().equalsIgnoreCase("password")) {
 			UserDetailData user = (UserDetailData) authentication.getUserAuthentication().getPrincipal();
 			Map<String, Object> additionalInformation = new HashMap<String, Object>();
-			additionalInformation.put("sub", user.getUsername());
+			additionalInformation.put("sub", user.getIdentifier());
 			String prefix = user.getPrefix();
 			additionalInformation.put("user_type", prefix.substring(0, prefix.length()-1));
 			token.setAdditionalInformation(additionalInformation);
