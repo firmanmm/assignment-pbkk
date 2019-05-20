@@ -1,0 +1,31 @@
+<div class="navigasi">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                {{if .auth}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/register" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Daftar</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/user/register">User</a>
+                        <a class="dropdown-item" href="/driver/register">Driver</a>
+                        <a class="dropdown-item" href="/resto/register">Restaurant</a>
+                        <a class="dropdown-item" href="/client/register">Client</a>
+                    </div>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/user/list">User</a>
+                        <a class="dropdown-item" href="/driver/list">Driver</a>
+                        <a class="dropdown-item" href="/resto/list">Restaurant</a>
+                        <a class="dropdown-item" href="/client/list">Client</a>
+                    </div>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+    </nav>
+</div>

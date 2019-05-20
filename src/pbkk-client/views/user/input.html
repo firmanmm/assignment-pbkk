@@ -1,0 +1,20 @@
+<label for="">Alamat</label>
+<br>
+<input type="text" name="alamat" class="form-control"  value='{{.data.Alamat}}'>
+<br>
+<label for="">Email</label>
+<br>
+<input type="email" name="email" class="form-control"  value='{{.data.Email}}' required>
+<br>
+<label for="">Nama</label>
+<br>
+<input type="text" name="nama" class="form-control" value='{{.data.Nama}}'>
+<br>
+<label for="">No Handphone</label>
+<br>
+<input type="text" name="no_handphone" class="form-control"  value='{{.data.NoHandphone}}' required pattern="{10,14}">
+<br>
+<label for="">No Identitas</label>
+<br>
+<input type="text" name="no_identitas" class="form-control" value='{{.data.NoIdentitas}}' required pattern="{14,14}">
+<br>

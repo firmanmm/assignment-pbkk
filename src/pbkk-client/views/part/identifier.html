@@ -1,0 +1,11 @@
+{{template "part/data.html" .}}
+<input type="text" name="" class="form-control" value="{{.data.UpdatedAt}}" disabled>
+<br>
+<label for="">Identifier</label>
+<br>
+<input type="text" name="identifier" class="form-control" value="{{.data.Identifier}}" pattern="{4,}" required>
+<br>
+<label for="">Password</label>
+<br>
+<input type="password" name="password" class="form-control" value="{{.data.Password}}" pattern="{4,}" required>
+<br>

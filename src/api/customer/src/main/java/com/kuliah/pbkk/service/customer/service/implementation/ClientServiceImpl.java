@@ -18,6 +18,10 @@ public class ClientServiceImpl implements ClientService{
 
 	@Override
 	public Client save(Client data) {
+		data.validate();
+		if (data.getPassword() != null && data.getPassword().length() > 0 ) {
+			data.updatePassword(data.getPassword());
+		}
 		return clientRepository.save(data);
 	}
 

@@ -1,0 +1,36 @@
+{{template "part/upper.html" .}}
+<div class="container text-center">
+    <div class="wrapper">
+        <div class="formContent">
+            {{template "part/error.html" .error}}
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Identifier</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">No Identitas</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range $key, $data := .datas }}
+                    <tr>
+                        <th scope="row">{{$data.Id}}</th>
+                        <td class='{{if $data.DeletedAt}}text-danger{{end}}'>{{$data.Identifier}}</td>
+                        <td>{{$data.Nama}}</td>
+                        <td>{{$data.NoIdentitas}}</td>
+                        <td>
+                            <a href="/user/update/{{$data.Id}}" class="btn btn-primary">Edit</a>
+                            <a href="/user/delete/{{$data.Id}}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {{end}}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+{{template "part/belower.html" .}}

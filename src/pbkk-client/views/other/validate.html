@@ -1,0 +1,22 @@
+{{template "part/upper.html" .}}
+<div class="container text-center">
+    <div class="wrapper">
+        <div class="formContent">
+            <form action="" method="POST">
+                <div class="">
+                    <h1>Validate Form</h1>
+                    {{template "part/success.html" .success}}
+					{{template "part/error.html" .error}}
+					<label for="">Access Token</label>
+                    <br>
+                    <input type="text" name="access_token" class="form-control">
+                    <br>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{template "part/belower.html" .}}

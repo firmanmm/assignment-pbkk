@@ -1,0 +1,32 @@
+{{template "part/upper.html" .}}
+<div class="container text-center">
+    <div class="wrapper">
+        <div class="formContent">
+            <form action="/login" method="POST">
+                <div class="">
+					<h1>Login</h1>
+					{{template "part/error.html" .error}}
+					<label for="">Client ID</label>
+                    <br>
+                    <input type="text" name="clientId" class="form-control">
+                    <br>
+                    <label for="">Client Password</label>
+                    <br>
+					<input type="password" name="clientSecret" class="form-control">
+					<br> 
+                    <label for="">Username</label>
+                    <br>
+                    <input type="text" name="username" class="form-control">
+                    <br>
+                    <label for="">Password</label>
+                    <br>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Sign in">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{template "part/belower.html" .}}
