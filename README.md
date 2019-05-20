@@ -272,6 +272,15 @@ id | Integer | required
 ```
 * **Data Parameters**
 `none`
+* **Sample Input**
+```
+
+```
+
+* **Sample Output**
+```
+    Driver Deactivated
+```
 
 
 ## Put Driver
@@ -499,7 +508,7 @@ isPremium | Boolean
 ```
 * **Sample Output**
 ```
-
+    Restaurant Deleted
 ```
 * **Scope Limitation**
 ```
@@ -519,12 +528,23 @@ Body :
     {
         "pemilik": hasan,
         "nama": hisana,
-        "deskripsi": ayam enak,
         "alamat": "jalan raya ciputra",
     }
 ```
 * **Sample Output**
 ```
+{
+      {
+        "id": 15,
+        "created_at": "2019-05-06T16:34:26.000+0000",
+        "deleted_at": null,
+        "pemilik": hasan,
+        "nama": hisana,
+        "deskripsi": ayam enak,
+        "alamat": jalan raya ciputra,
+        "is_premium": null
+    }
+}
 
 ```
 * **Scope Limitation**
@@ -541,17 +561,26 @@ Body :
 * **Data Parameters**
 > `alamat | String`
 * **Sample Request**
+```
+Body :
+{
+    "pemilik": Sujanda,
+    "nama": Ayam goreng sedih,
+    "deskripsi": Pasti sedih,
+    "alamat": "jalan raya udin city",
+}
+```
 
 * **Sample Output**
 ```
 {
-    "id": 14,
+    "id": 23,
     "created_at": "2019-05-13T17:36:10.859+0000",
     "deleted_at": null,
-    "pemilik": null,
-    "nama": null,
-    "deskripsi": null,
-    "alamat": "jalan raya kebagusan city",
+    "pemilik": Sujanda,
+    "nama": Ayam goreng sedih,
+    "deskripsi": Pasti sedih,
+    "alamat": "jalan raya udin city",
     "is_premium": null
 }
 ```
@@ -685,15 +714,25 @@ password | String
 Body :
     {
         "no_identitas": "12344",
-        "nama": null,
-        "alamat": "Test Alamart",
-        "no_handphone": "32114",
+        "nama": "Jaenudin Alkham",
+        "alamat": "Test Alamat",
+        "no_handphone": "081284356092",
         "email": "maile@gmail.com"
     }
 ```
 * **Sample Output**
 ```
-
+    {
+        "id": 20,
+        "created_at": "2019-05-07T01:22:31.000+0000",
+        "deleted_at": null,
+        "no_identitas": "12344",
+        "nama": "Jaenudin Alkham",
+        "alamat": :Test Alamat,
+        "no_handphone": "081284356092",
+        "email": maile@gmail.comll,
+        "is_activated": null
+    }
 ```
 * **Scope Limitation**
 ```
@@ -713,13 +752,23 @@ Body :
 ```
 Body :
     {
-        "no_identitas": "12344",
-        "nama": "Jaenuddin",
-        "alamat": "Test Alamart", 
+        "alamat": "Test Alamart",
+        "email": "jaenudin@gmail.com"
     }
 ```
 * **Sample Output**
 ```
+    {
+        "id": 20,
+        "created_at": "2019-05-07T01:22:31.000+0000",
+        "deleted_at": null,
+        "no_identitas": "12344",
+        "nama": "Jaenudin Alkham",
+        "alamat": "Test Alamart",
+        "no_handphone": "081284356092",
+        "email": "jaenudin@gmail.com"
+        "is_activated": null
+    }
 
 ```
 * **Scope Limitation**
@@ -742,7 +791,7 @@ Body :
 ```
 * **Sample Output**
 ```
-
+    User Deleted
 ```
 * **Scope Limitation**
 ```
