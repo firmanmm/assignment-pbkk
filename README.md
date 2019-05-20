@@ -272,6 +272,15 @@ id | Integer | required
 ```
 * **Data Parameters**
 `none`
+* **Sample Input**
+```
+
+```
+
+* **Sample Output**
+```
+    Driver Deactivated
+```
 
 
 ## Put Driver
@@ -499,7 +508,7 @@ isPremium | Boolean
 ```
 * **Sample Output**
 ```
-
+    Restaurant Deleted
 ```
 * **Scope Limitation**
 ```
@@ -782,7 +791,7 @@ Body :
 ```
 * **Sample Output**
 ```
-
+    User Deleted
 ```
 * **Scope Limitation**
 ```
